@@ -192,6 +192,13 @@ export const PORTFOLIO_DATA = {
     }
   },
 
+  social: {
+    twitter: "https://twitter.com/johndoe",
+    linkedin: "https://linkedin.com/in/johndoe", 
+    instagram: "https://instagram.com/johndoe",
+    resumeUrl: "/resume.pdf"
+  },
+
   footer: {
     text: "© 2024 John Doe. Crafted with ❤️ and lots of ☕"
   }

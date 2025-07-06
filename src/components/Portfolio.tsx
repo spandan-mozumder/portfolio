@@ -6,6 +6,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { PORTFOLIO_DATA } from '@/constants/portfolio';
 import ProjectDetailOverlay from './ProjectDetailOverlay';
+import FloatingMenu from './FloatingMenu';
+import ScrollToTop from './ScrollToTop';
 
 const Portfolio = () => {
   const [showAllExperience, setShowAllExperience] = useState(false);
@@ -262,6 +264,12 @@ const Portfolio = () => {
         isOpen={isOverlayOpen}
         onClose={closeProjectOverlay}
       />
+
+      {/* Floating Menu */}
+      <FloatingMenu />
+
+      {/* Scroll to Top */}
+      <ScrollToTop />
     </div>
   );
 };
