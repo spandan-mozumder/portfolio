@@ -59,26 +59,27 @@ const Portfolio = () => {
       {/* About Section */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4 text-center gradient-text">{PORTFOLIO_DATA.sections.about.title}</h2>
-          <p className="text-center text-muted-foreground/80 mb-12 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">{PORTFOLIO_DATA.sections.about.title}</h2>
+          <p className="text-center text-muted-foreground/80 mb-12 max-w-2xl mx-auto animate-fade-in-delay-1">
             {PORTFOLIO_DATA.sections.about.description}
           </p>
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-6">
+            <div className="space-y-6 animate-slide-up-delay-1">
               {PORTFOLIO_DATA.about.paragraphs.map((paragraph, index) => (
                 <p key={index} className="text-lg text-muted-foreground leading-relaxed">
                   {paragraph}
                 </p>
               ))}
             </div>
-            <div>
+            <div className="animate-slide-up-delay-2">
               <h3 className="text-2xl font-semibold mb-6 text-primary">Key Strengths</h3>
               <div className="grid grid-cols-2 gap-3">
                 {PORTFOLIO_DATA.about.keyStrengths.map((strength, index) => (
                   <Badge 
                     key={index} 
                     variant="secondary" 
-                    className="p-3 text-center justify-center glow-effect gradient-border"
+                    className="p-3 text-center justify-center glow-effect gradient-border transition-all duration-300 hover:scale-105 hover:shadow-glow-primary"
+                    style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {strength}
                   </Badge>
@@ -92,13 +93,17 @@ const Portfolio = () => {
       {/* Experience Section */}
       <section className="py-20 px-6 bg-gradient-secondary">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4 text-center gradient-text">{PORTFOLIO_DATA.sections.experience.title}</h2>
-          <p className="text-center text-muted-foreground/80 mb-12 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">{PORTFOLIO_DATA.sections.experience.title}</h2>
+          <p className="text-center text-muted-foreground/80 mb-12 max-w-2xl mx-auto animate-fade-in-delay-1">
             {PORTFOLIO_DATA.sections.experience.description}
           </p>
           <div className="space-y-8">
             {visibleExperiences.map((exp, index) => (
-              <Card key={index} className="p-6 gradient-border glow-effect">
+              <Card 
+                key={index} 
+                className="p-6 gradient-border glow-effect transition-all duration-500 hover:scale-105 hover:shadow-glow-primary animate-fade-in-delay-2"
+                style={{ animationDelay: `${0.4 + index * 0.2}s` }}
+              >
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-semibold text-primary mb-1">{exp.title}</h3>
@@ -109,7 +114,11 @@ const Portfolio = () => {
                 <p className="text-muted-foreground mb-4 leading-relaxed">{exp.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech, techIndex) => (
-                    <Badge key={techIndex} variant="outline" className="text-xs">
+                    <Badge 
+                      key={techIndex} 
+                      variant="outline" 
+                      className="text-xs transition-all duration-300 hover:scale-110 hover:bg-primary/10"
+                    >
                       {tech}
                     </Badge>
                   ))}
@@ -118,11 +127,11 @@ const Portfolio = () => {
             ))}
           </div>
           {PORTFOLIO_DATA.experiences.length > 2 && (
-            <div className="text-center mt-8">
+            <div className="text-center mt-8 animate-fade-in-delay-3">
               <Button 
                 variant="outline" 
                 onClick={() => setShowAllExperience(!showAllExperience)}
-                className="glow-effect"
+                className="glow-effect transition-all duration-300 hover:scale-105"
               >
                 {showAllExperience ? 'Show Less' : 'Show More Experience'}
               </Button>
@@ -134,29 +143,38 @@ const Portfolio = () => {
       {/* Projects Section */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4 text-center gradient-text">{PORTFOLIO_DATA.sections.projects.title}</h2>
-          <p className="text-center text-muted-foreground/80 mb-12 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">{PORTFOLIO_DATA.sections.projects.title}</h2>
+          <p className="text-center text-muted-foreground/80 mb-12 max-w-2xl mx-auto animate-fade-in-delay-1">
             {PORTFOLIO_DATA.sections.projects.description}
           </p>
           <div className="relative">
             <div className="overflow-x-auto pb-4">
               <div className="flex space-x-6 w-max">
                 {PORTFOLIO_DATA.projects.map((project, index) => (
-                  <Card key={index} className="w-80 gradient-border glow-effect flex-shrink-0 cursor-pointer transition-transform hover:scale-105" onClick={() => openProjectOverlay(project)}>
+                  <Card 
+                    key={index} 
+                    className="w-80 gradient-border glow-effect flex-shrink-0 cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-glow-primary animate-fade-in-delay-2" 
+                    onClick={() => openProjectOverlay(project)}
+                    style={{ animationDelay: `${0.4 + index * 0.15}s` }}
+                  >
                     <div className="aspect-video relative overflow-hidden rounded-t-lg">
                       <img 
                         src={project.image} 
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-semibold mb-2 text-primary">{project.title}</h3>
+                      <h3 className="text-xl font-semibold mb-2 text-primary transition-colors duration-300 hover:text-accent">{project.title}</h3>
                       <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, techIndex) => (
-                          <Badge key={techIndex} variant="secondary" className="text-xs">
+                          <Badge 
+                            key={techIndex} 
+                            variant="secondary" 
+                            className="text-xs transition-all duration-300 hover:scale-110 hover:bg-primary/20"
+                          >
                             {tech}
                           </Badge>
                         ))}
@@ -166,12 +184,12 @@ const Portfolio = () => {
                 ))}
               </div>
             </div>
-            <div className="flex justify-center mt-8 space-x-2">
+            <div className="flex justify-center mt-8 space-x-2 animate-fade-in-delay-3">
               {PORTFOLIO_DATA.projects.map((_, index) => (
                 <div 
                   key={index}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentProject ? 'bg-primary' : 'bg-muted'
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentProject ? 'bg-primary scale-125' : 'bg-muted hover:bg-primary/50'
                   }`}
                 />
               ))}
@@ -183,19 +201,23 @@ const Portfolio = () => {
       {/* Contact Section */}
       <section className="py-20 px-6 bg-gradient-secondary">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4 text-center gradient-text">{PORTFOLIO_DATA.sections.contact.title}</h2>
-          <p className="text-center text-muted-foreground/80 mb-12 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">{PORTFOLIO_DATA.sections.contact.title}</h2>
+          <p className="text-center text-muted-foreground/80 mb-12 max-w-2xl mx-auto animate-fade-in-delay-1">
             {PORTFOLIO_DATA.sections.contact.description}
           </p>
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className="space-y-8 animate-slide-up-delay-1">
               <div>
                 <h3 className="text-2xl font-semibold mb-6 text-primary">Contact Information</h3>
                  <div className="space-y-4">
                    {PORTFOLIO_DATA.contact.info.map((contact, index) => (
-                     <div key={index} className="flex items-center space-x-4">
-                       <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                     <div 
+                       key={index} 
+                       className="flex items-center space-x-4 transition-all duration-300 hover:translate-x-2 hover:bg-primary/5 p-3 rounded-lg"
+                       style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+                     >
+                       <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center transition-all duration-300 hover:bg-primary/20 hover:scale-110">
                          <span className="text-primary">{contact.icon}</span>
                        </div>
                        <div>
@@ -209,37 +231,50 @@ const Portfolio = () => {
             </div>
 
             {/* Contact Form */}
-            <div>
+            <div className="animate-slide-up-delay-2">
               <h3 className="text-2xl font-semibold mb-6 text-primary">Send a Message</h3>
-              <Card className="p-6 gradient-border">
+              <Card className="p-6 gradient-border glow-effect hover:shadow-glow-primary transition-all duration-500">
                  <form className="space-y-6">
                    <div className="grid grid-cols-2 gap-4">
                      <div>
                        <label className="block text-sm font-medium mb-2">{PORTFOLIO_DATA.contact.form.fields.firstName}</label>
-                       <Input placeholder={PORTFOLIO_DATA.contact.form.placeholders.firstName} className="bg-secondary/50" />
+                       <Input 
+                         placeholder={PORTFOLIO_DATA.contact.form.placeholders.firstName} 
+                         className="bg-secondary/50 transition-all duration-300 focus:scale-105 focus:shadow-glow-soft" 
+                       />
                      </div>
                      <div>
                        <label className="block text-sm font-medium mb-2">{PORTFOLIO_DATA.contact.form.fields.lastName}</label>
-                       <Input placeholder={PORTFOLIO_DATA.contact.form.placeholders.lastName} className="bg-secondary/50" />
+                       <Input 
+                         placeholder={PORTFOLIO_DATA.contact.form.placeholders.lastName} 
+                         className="bg-secondary/50 transition-all duration-300 focus:scale-105 focus:shadow-glow-soft" 
+                       />
                      </div>
                    </div>
                    <div>
                      <label className="block text-sm font-medium mb-2">{PORTFOLIO_DATA.contact.form.fields.email}</label>
-                     <Input type="email" placeholder={PORTFOLIO_DATA.contact.form.placeholders.email} className="bg-secondary/50" />
+                     <Input 
+                       type="email" 
+                       placeholder={PORTFOLIO_DATA.contact.form.placeholders.email} 
+                       className="bg-secondary/50 transition-all duration-300 focus:scale-105 focus:shadow-glow-soft" 
+                     />
                    </div>
                    <div>
                      <label className="block text-sm font-medium mb-2">{PORTFOLIO_DATA.contact.form.fields.subject}</label>
-                     <Input placeholder={PORTFOLIO_DATA.contact.form.placeholders.subject} className="bg-secondary/50" />
+                     <Input 
+                       placeholder={PORTFOLIO_DATA.contact.form.placeholders.subject} 
+                       className="bg-secondary/50 transition-all duration-300 focus:scale-105 focus:shadow-glow-soft" 
+                     />
                    </div>
                    <div>
                      <label className="block text-sm font-medium mb-2">{PORTFOLIO_DATA.contact.form.fields.message}</label>
                      <Textarea 
                        placeholder={PORTFOLIO_DATA.contact.form.placeholders.message}
                        rows={5}
-                       className="bg-secondary/50 resize-none"
+                       className="bg-secondary/50 resize-none transition-all duration-300 focus:scale-105 focus:shadow-glow-soft"
                      />
                    </div>
-                   <Button className="w-full glow-effect" size="lg">
+                   <Button className="w-full glow-effect transition-all duration-300 hover:scale-105" size="lg">
                      {PORTFOLIO_DATA.contact.form.button}
                    </Button>
                  </form>
