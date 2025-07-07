@@ -1,28 +1,37 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Badge } from '@/components/ui/badge';
-import { PORTFOLIO_DATA } from '@/constants/portfolio';
-import ProjectDetailOverlay from './ProjectDetailOverlay';
-import FloatingMenu from './FloatingMenu';
-import ScrollToTop from './ScrollToTop';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
+import { PORTFOLIO_DATA } from "@/constants/portfolio";
+import ProjectDetailOverlay from "./ProjectDetailOverlay";
+import FloatingMenu from "./FloatingMenu";
+import ScrollToTop from "./ScrollToTop";
+import LoadingScreen from "./LoadingScreen";
 
 const Portfolio = () => {
   const [showAllExperience, setShowAllExperience] = useState(false);
   const [currentProject, setCurrentProject] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [status, setStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
-  const visibleExperiences = showAllExperience ? PORTFOLIO_DATA.experiences : PORTFOLIO_DATA.experiences.slice(0, 2);
+  const visibleExperiences = showAllExperience
+    ? PORTFOLIO_DATA.experiences
+    : PORTFOLIO_DATA.experiences.slice(0, 2);
 
   const nextProject = () => {
     setCurrentProject((prev) => (prev + 1) % PORTFOLIO_DATA.projects.length);
   };
 
   const prevProject = () => {
-    setCurrentProject((prev) => (prev - 1 + PORTFOLIO_DATA.projects.length) % PORTFOLIO_DATA.projects.length);
+    setCurrentProject(
+      (prev) =>
+        (prev - 1 + PORTFOLIO_DATA.projects.length) %
+        PORTFOLIO_DATA.projects.length
+    );
   };
 
   const openProjectOverlay = (project) => {
@@ -34,6 +43,49 @@ const Portfolio = () => {
     setIsOverlayOpen(false);
     setSelectedProject(null);
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Submitting...");
+
+    const form = e.target;
+
+    const data = {
+      firstName: form.firstName.value,
+      lastName: form.lastName.value,
+      email: form.email.value,
+      subject: form.subject.value,
+      message: form.message.value,
+    };
+
+    try {
+      const response = await fetch("https://formspree.io/f/movwzgaq", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setStatus("Message sent!");
+        form.reset();
+      } else {
+        setStatus("Oops! Something went wrong.");
+      }
+    } catch (error) {
+      setStatus("Network error!");
+    }
+  };
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
+  if (isLoading) {
+    return <LoadingScreen onLoadingComplete={handleLoadingComplete} />;
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -59,31 +111,64 @@ const Portfolio = () => {
       {/* About Section */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">{PORTFOLIO_DATA.sections.about.title}</h2>
+          <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">
+            {PORTFOLIO_DATA.sections.about.title}
+          </h2>
           <p className="text-center text-muted-foreground/80 mb-12 max-w-2xl mx-auto animate-fade-in-delay-1">
             {PORTFOLIO_DATA.sections.about.description}
           </p>
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-6 animate-slide-up-delay-1">
               {PORTFOLIO_DATA.about.paragraphs.map((paragraph, index) => (
-                <p key={index} className="text-lg text-muted-foreground leading-relaxed">
+                <p
+                  key={index}
+                  className="text-lg text-muted-foreground leading-relaxed"
+                >
                   {paragraph}
                 </p>
               ))}
             </div>
             <div className="animate-slide-up-delay-2">
-              <h3 className="text-2xl font-semibold mb-6 text-primary">Key Strengths</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {PORTFOLIO_DATA.about.keyStrengths.map((strength, index) => (
-                  <Badge 
-                    key={index} 
-                    variant="secondary" 
-                    className="p-3 text-center justify-center glow-effect gradient-border transition-all duration-300 hover:scale-105 hover:shadow-glow-primary"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    {strength}
-                  </Badge>
-                ))}
+              <h3 className="text-2xl font-semibold mb-6 text-primary">
+                Key Strengths
+              </h3>
+              <div className="m-4">
+                <h4 className="text-lg font-medium mb-4 text-muted-foreground">
+                  Professional
+                </h4>
+                <div className="grid grid-cols-2 gap-3">
+                  {PORTFOLIO_DATA.about.keyStrengths.professional.map(
+                    (strength, index) => (
+                      <Badge
+                        key={index}
+                        variant="secondary"
+                        className="p-3 text-center justify-center glow-effect gradient-border transition-all duration-300 hover:scale-105 hover:shadow-glow-primary"
+                        style={{ animationDelay: `${index * 0.1}s` }}
+                      >
+                        {strength}
+                      </Badge>
+                    )
+                  )}
+                </div>
+              </div>
+              <div className="m-4">
+                <h4 className="text-lg font-medium mb-4 text-muted-foreground">
+                  Personal
+                </h4>
+                <div className="grid grid-cols-2 gap-3">
+                  {PORTFOLIO_DATA.about.keyStrengths.personal.map(
+                    (strength, index) => (
+                      <Badge
+                        key={index}
+                        variant="secondary"
+                        className="p-3 text-center justify-center glow-effect gradient-border transition-all duration-300 hover:scale-105 hover:shadow-glow-primary"
+                        style={{ animationDelay: `${index * 0.1}s` }}
+                      >
+                        {strength}
+                      </Badge>
+                    )
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -93,30 +178,40 @@ const Portfolio = () => {
       {/* Experience Section */}
       <section className="py-20 px-6 bg-gradient-secondary">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">{PORTFOLIO_DATA.sections.experience.title}</h2>
+          <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">
+            {PORTFOLIO_DATA.sections.experience.title}
+          </h2>
           <p className="text-center text-muted-foreground/80 mb-12 max-w-2xl mx-auto animate-fade-in-delay-1">
             {PORTFOLIO_DATA.sections.experience.description}
           </p>
           <div className="space-y-8">
             {visibleExperiences.map((exp, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="p-6 gradient-border glow-effect transition-all duration-500 hover:scale-105 hover:shadow-glow-primary animate-fade-in-delay-2"
                 style={{ animationDelay: `${0.4 + index * 0.2}s` }}
               >
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-semibold text-primary mb-1">{exp.title}</h3>
-                    <p className="text-lg text-foreground font-medium">{exp.company}</p>
+                    <h3 className="text-xl font-semibold text-primary mb-1">
+                      {exp.title}
+                    </h3>
+                    <p className="text-lg text-foreground font-medium">
+                      {exp.company}
+                    </p>
                   </div>
-                  <span className="text-muted-foreground font-mono mt-2 md:mt-0">{exp.period}</span>
+                  <span className="text-muted-foreground font-mono mt-2 md:mt-0">
+                    {exp.period}
+                  </span>
                 </div>
-                <p className="text-muted-foreground mb-4 leading-relaxed">{exp.description}</p>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {exp.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech, techIndex) => (
-                    <Badge 
-                      key={techIndex} 
-                      variant="outline" 
+                    <Badge
+                      key={techIndex}
+                      variant="outline"
                       className="text-xs transition-all duration-300 hover:scale-110 hover:bg-primary/10"
                     >
                       {tech}
@@ -128,12 +223,12 @@ const Portfolio = () => {
           </div>
           {PORTFOLIO_DATA.experiences.length > 2 && (
             <div className="text-center mt-8 animate-fade-in-delay-3">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={() => setShowAllExperience(!showAllExperience)}
                 className="glow-effect transition-all duration-300 hover:scale-105"
               >
-                {showAllExperience ? 'Show Less' : 'Show More Experience'}
+                {showAllExperience ? "Show Less" : "Show More Experience"}
               </Button>
             </div>
           )}
@@ -142,37 +237,47 @@ const Portfolio = () => {
 
       {/* Projects Section */}
       <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">{PORTFOLIO_DATA.sections.projects.title}</h2>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">
+            {PORTFOLIO_DATA.sections.projects.title}
+          </h2>
           <p className="text-center text-muted-foreground/80 mb-12 max-w-2xl mx-auto animate-fade-in-delay-1">
             {PORTFOLIO_DATA.sections.projects.description}
           </p>
           <div className="relative">
-            <div className="overflow-x-auto pb-4">
+            <div className="overflow-x-auto py-8 px-10">
               <div className="flex space-x-6 w-max">
                 {PORTFOLIO_DATA.projects.map((project, index) => (
-                  <Card 
-                    key={index} 
-                    className="w-80 gradient-border glow-effect flex-shrink-0 cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-glow-primary animate-fade-in-delay-2" 
+                  <Card
+                    key={index}
+                    className="w-[25rem] h-[30rem] overflow-y-scroll glow-effect flex-shrink-0 cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-glow-primary animate-fade-in-delay-2"
                     onClick={() => openProjectOverlay(project)}
                     style={{ animationDelay: `${0.4 + index * 0.15}s` }}
                   >
-                    <div className="aspect-video relative overflow-hidden rounded-t-lg">
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    </div>
+                    {typeof project.image === "string" &&
+                      project.image.trim() !== "" && (
+                        <div className="aspect-video relative overflow-hidden rounded-t-lg">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                          />
+
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                        </div>
+                      )}
                     <div className="p-6">
-                      <h3 className="text-xl font-semibold mb-2 text-primary transition-colors duration-300 hover:text-accent">{project.title}</h3>
-                      <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+                      <h3 className="text-xl font-semibold mb-2 text-primary transition-colors duration-300 hover:text-accent">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-4 leading-relaxed">
+                        {project.description}
+                      </p>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, techIndex) => (
-                          <Badge 
-                            key={techIndex} 
-                            variant="secondary" 
+                          <Badge
+                            key={techIndex}
+                            variant="secondary"
                             className="text-xs transition-all duration-300 hover:scale-110 hover:bg-primary/20"
                           >
                             {tech}
@@ -184,16 +289,6 @@ const Portfolio = () => {
                 ))}
               </div>
             </div>
-            <div className="flex justify-center mt-8 space-x-2 animate-fade-in-delay-3">
-              {PORTFOLIO_DATA.projects.map((_, index) => (
-                <div 
-                  key={index}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentProject ? 'bg-primary scale-125' : 'bg-muted hover:bg-primary/50'
-                  }`}
-                />
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -201,85 +296,96 @@ const Portfolio = () => {
       {/* Contact Section */}
       <section className="py-20 px-6 bg-gradient-secondary">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">{PORTFOLIO_DATA.sections.contact.title}</h2>
+          <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">
+            {PORTFOLIO_DATA.sections.contact.title}
+          </h2>
           <p className="text-center text-muted-foreground/80 mb-12 max-w-2xl mx-auto animate-fade-in-delay-1">
             {PORTFOLIO_DATA.sections.contact.description}
           </p>
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <div className="space-y-8 animate-slide-up-delay-1">
-              <div>
-                <h3 className="text-2xl font-semibold mb-6 text-primary">Contact Information</h3>
-                 <div className="space-y-4">
-                   {PORTFOLIO_DATA.contact.info.map((contact, index) => (
-                     <div 
-                       key={index} 
-                       className="flex items-center space-x-4 transition-all duration-300 hover:translate-x-2 hover:bg-primary/5 p-3 rounded-lg"
-                       style={{ animationDelay: `${0.3 + index * 0.1}s` }}
-                     >
-                       <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center transition-all duration-300 hover:bg-primary/20 hover:scale-110">
-                         <span className="text-primary">{contact.icon}</span>
-                       </div>
-                       <div>
-                         <p className="font-medium">{contact.label}</p>
-                         <p className="text-muted-foreground font-mono">{contact.value}</p>
-                       </div>
-                     </div>
-                   ))}
-                 </div>
-              </div>
-            </div>
 
-            {/* Contact Form */}
-            <div className="animate-slide-up-delay-2">
-              <h3 className="text-2xl font-semibold mb-6 text-primary">Send a Message</h3>
-              <Card className="p-6 gradient-border glow-effect hover:shadow-glow-primary transition-all duration-500">
-                 <form className="space-y-6">
-                   <div className="grid grid-cols-2 gap-4">
-                     <div>
-                       <label className="block text-sm font-medium mb-2">{PORTFOLIO_DATA.contact.form.fields.firstName}</label>
-                       <Input 
-                         placeholder={PORTFOLIO_DATA.contact.form.placeholders.firstName} 
-                         className="bg-secondary/50 transition-all duration-300 focus:scale-105 focus:shadow-glow-soft" 
-                       />
-                     </div>
-                     <div>
-                       <label className="block text-sm font-medium mb-2">{PORTFOLIO_DATA.contact.form.fields.lastName}</label>
-                       <Input 
-                         placeholder={PORTFOLIO_DATA.contact.form.placeholders.lastName} 
-                         className="bg-secondary/50 transition-all duration-300 focus:scale-105 focus:shadow-glow-soft" 
-                       />
-                     </div>
-                   </div>
-                   <div>
-                     <label className="block text-sm font-medium mb-2">{PORTFOLIO_DATA.contact.form.fields.email}</label>
-                     <Input 
-                       type="email" 
-                       placeholder={PORTFOLIO_DATA.contact.form.placeholders.email} 
-                       className="bg-secondary/50 transition-all duration-300 focus:scale-105 focus:shadow-glow-soft" 
-                     />
-                   </div>
-                   <div>
-                     <label className="block text-sm font-medium mb-2">{PORTFOLIO_DATA.contact.form.fields.subject}</label>
-                     <Input 
-                       placeholder={PORTFOLIO_DATA.contact.form.placeholders.subject} 
-                       className="bg-secondary/50 transition-all duration-300 focus:scale-105 focus:shadow-glow-soft" 
-                     />
-                   </div>
-                   <div>
-                     <label className="block text-sm font-medium mb-2">{PORTFOLIO_DATA.contact.form.fields.message}</label>
-                     <Textarea 
-                       placeholder={PORTFOLIO_DATA.contact.form.placeholders.message}
-                       rows={5}
-                       className="bg-secondary/50 resize-none transition-all duration-300 focus:scale-105 focus:shadow-glow-soft"
-                     />
-                   </div>
-                   <Button className="w-full glow-effect transition-all duration-300 hover:scale-105" size="lg">
-                     {PORTFOLIO_DATA.contact.form.button}
-                   </Button>
-                 </form>
-              </Card>
-            </div>
+          {/* Contact Form */}
+          <div className="animate-slide-up-delay-2">
+            <h3 className="text-2xl font-semibold mb-6 text-primary">
+              Send a Message
+            </h3>
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    {PORTFOLIO_DATA.contact.form.fields.firstName}
+                  </label>
+                  <Input
+                    name="firstName"
+                    placeholder={
+                      PORTFOLIO_DATA.contact.form.placeholders.firstName
+                    }
+                    className="bg-secondary/50 transition-all duration-300 focus:shadow-glow-soft"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    {PORTFOLIO_DATA.contact.form.fields.lastName}
+                  </label>
+                  <Input
+                    name="lastName"
+                    placeholder={
+                      PORTFOLIO_DATA.contact.form.placeholders.lastName
+                    }
+                    className="bg-secondary/50 transition-all duration-300 focus:shadow-glow-soft"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  {PORTFOLIO_DATA.contact.form.fields.email}
+                </label>
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder={PORTFOLIO_DATA.contact.form.placeholders.email}
+                  className="bg-secondary/50 transition-all duration-300 focus:shadow-glow-soft"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  {PORTFOLIO_DATA.contact.form.fields.subject}
+                </label>
+                <Input
+                  name="subject"
+                  placeholder={PORTFOLIO_DATA.contact.form.placeholders.subject}
+                  className="bg-secondary/50 transition-all duration-300 focus:shadow-glow-soft"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  {PORTFOLIO_DATA.contact.form.fields.message}
+                </label>
+                <Textarea
+                  name="message"
+                  placeholder={PORTFOLIO_DATA.contact.form.placeholders.message}
+                  rows={5}
+                  className="bg-secondary/50 resize-none transition-all duration-300 focus:shadow-glow-soft"
+                  required
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full glow-effect transition-all duration-300 hover:scale-105"
+                size="lg"
+              >
+                {PORTFOLIO_DATA.contact.form.button}
+              </Button>
+
+              {status && <p className="text-center text-sm mt-2">{status}</p>}
+            </form>
           </div>
         </div>
       </section>
@@ -294,7 +400,7 @@ const Portfolio = () => {
       </footer>
 
       {/* Project Detail Overlay */}
-      <ProjectDetailOverlay 
+      <ProjectDetailOverlay
         project={selectedProject}
         isOpen={isOverlayOpen}
         onClose={closeProjectOverlay}

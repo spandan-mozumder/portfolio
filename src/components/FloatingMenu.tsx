@@ -1,16 +1,21 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Menu, X, Twitter, Linkedin, Instagram, Download } from 'lucide-react';
-import { PORTFOLIO_DATA } from '@/constants/portfolio';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Menu, X, Twitter, Linkedin, Instagram, Download } from "lucide-react";
+import { PORTFOLIO_DATA } from "@/constants/portfolio";
 
 const FloatingMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleDownloadResume = () => {
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = PORTFOLIO_DATA.social.resumeUrl;
-    link.download = 'resume.pdf';
+    link.download = "resume.pdf";
     link.click();
   };
 
@@ -27,7 +32,11 @@ const FloatingMenu = () => {
                 onMouseEnter={() => setIsOpen(true)}
                 onMouseLeave={() => setIsOpen(false)}
               >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {isOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
               </Button>
             </TooltipTrigger>
             <TooltipContent side="left">
@@ -36,9 +45,11 @@ const FloatingMenu = () => {
           </Tooltip>
 
           {/* Floating Menu Items */}
-          <div 
+          <div
             className={`absolute top-0 right-0 transition-all duration-300 ${
-              isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+              isOpen
+                ? "opacity-100 pointer-events-auto"
+                : "opacity-0 pointer-events-none"
             }`}
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => setIsOpen(false)}
@@ -49,8 +60,10 @@ const FloatingMenu = () => {
                   <Button
                     size="icon"
                     variant="outline"
-                    className="w-10 h-10 rounded-full backdrop-blur-sm bg-background/80 border-primary/20 hover:bg-primary/10"
-                    onClick={() => window.open(PORTFOLIO_DATA.social.twitter, '_blank')}
+                    className="w-10 h-10 rounded-full backdrop-blur-sm bg-background/80 border-primary/20 hover:bg-primary/10 hover:text-primary"
+                    onClick={() =>
+                      window.open(PORTFOLIO_DATA.social.twitter, "_blank")
+                    }
                   >
                     <Twitter className="h-4 w-4" />
                   </Button>
@@ -65,8 +78,10 @@ const FloatingMenu = () => {
                   <Button
                     size="icon"
                     variant="outline"
-                    className="w-10 h-10 rounded-full backdrop-blur-sm bg-background/80 border-primary/20 hover:bg-primary/10"
-                    onClick={() => window.open(PORTFOLIO_DATA.social.linkedin, '_blank')}
+                    className="w-10 h-10 rounded-full backdrop-blur-sm bg-background/80 border-primary/20 hover:bg-primary/10 hover:text-primary"
+                    onClick={() =>
+                      window.open(PORTFOLIO_DATA.social.linkedin, "_blank")
+                    }
                   >
                     <Linkedin className="h-4 w-4" />
                   </Button>
@@ -81,8 +96,10 @@ const FloatingMenu = () => {
                   <Button
                     size="icon"
                     variant="outline"
-                    className="w-10 h-10 rounded-full backdrop-blur-sm bg-background/80 border-primary/20 hover:bg-primary/10"
-                    onClick={() => window.open(PORTFOLIO_DATA.social.instagram, '_blank')}
+                    className="w-10 h-10 rounded-full backdrop-blur-sm bg-background/80 border-primary/20 hover:bg-primary/10 hover:text-primary"
+                    onClick={() =>
+                      window.open(PORTFOLIO_DATA.social.instagram, "_blank")
+                    }
                   >
                     <Instagram className="h-4 w-4" />
                   </Button>
@@ -97,7 +114,7 @@ const FloatingMenu = () => {
                   <Button
                     size="icon"
                     variant="outline"
-                    className="w-10 h-10 rounded-full backdrop-blur-sm bg-background/80 border-primary/20 hover:bg-primary/10"
+                    className="w-10 h-10 rounded-full backdrop-blur-sm bg-background/80 border-primary/20 hover:bg-primary/10 hover:text-primary"
                     onClick={handleDownloadResume}
                   >
                     <Download className="h-4 w-4" />
