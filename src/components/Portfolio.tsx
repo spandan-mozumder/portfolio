@@ -254,11 +254,10 @@ const Portfolio = () => {
                     onClick={() => openProjectOverlay(project)}
                     style={{ animationDelay: `${0.4 + index * 0.15}s` }}
                   >
-                    {typeof project.image === "string" &&
-                      project.image.trim() !== "" && (
+                    {Array.isArray(project.images) && project.images.length > 0 && (
                         <div className="aspect-video relative overflow-hidden rounded-t-lg">
                           <img
-                            src={project.image}
+                            src={project.images[0]}
                             alt={project.title}
                             className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                           />
