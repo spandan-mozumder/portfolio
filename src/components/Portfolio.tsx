@@ -139,14 +139,13 @@ const Portfolio = () => {
                 <div className="grid grid-cols-2 gap-3">
                   {PORTFOLIO_DATA.about.keyStrengths.professional.map(
                     (strength, index) => (
-                      <Badge
+                      <Card
                         key={index}
-                        variant="secondary"
                         className="p-3 text-center justify-center glow-effect gradient-border transition-all duration-300 hover:scale-105 hover:shadow-glow-primary"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
                         {strength}
-                      </Badge>
+                      </Card>
                     )
                   )}
                 </div>
@@ -158,14 +157,13 @@ const Portfolio = () => {
                 <div className="grid grid-cols-2 gap-3">
                   {PORTFOLIO_DATA.about.keyStrengths.personal.map(
                     (strength, index) => (
-                      <Badge
+                      <Card
                         key={index}
-                        variant="secondary"
                         className="p-3 text-center justify-center glow-effect gradient-border transition-all duration-300 hover:scale-105 hover:shadow-glow-primary"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
                         {strength}
-                      </Badge>
+                      </Card>
                     )
                   )}
                 </div>

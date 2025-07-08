@@ -28,7 +28,7 @@ const FloatingMenu = () => {
             <TooltipTrigger asChild>
               <Button
                 size="icon"
-                className="w-12 h-12 rounded-full glow-effect bg-primary/90 hover:bg-primary backdrop-blur-sm"
+                className="w-12 h-12 rounded-full glow-effect bg-primary/90 hover:bg-primary backdrop-blur-sm border-gradient hover:shadow-glow-primary"
                 onMouseEnter={() => setIsOpen(true)}
                 onMouseLeave={() => setIsOpen(false)}
               >
@@ -46,7 +46,7 @@ const FloatingMenu = () => {
 
           {/* Floating Menu Items */}
           <div
-            className={`absolute top-0 right-0 transition-all duration-300 ${
+            className={`absolute top-0 right-0 transition-all duration-300 mt-16 ${
               isOpen
                 ? "opacity-100 pointer-events-auto"
                 : "opacity-0 pointer-events-none"
@@ -54,7 +54,7 @@ const FloatingMenu = () => {
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => setIsOpen(false)}
           >
-            <div className="flex flex-col space-y-3 pt-16">
+            <div className="flex flex-col space-y-3">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
