@@ -89,7 +89,7 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
+  
       <section className="relative min-h-screen flex items-center justify-center px-6">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
         <div className="relative text-center animate-fade-in">
@@ -108,7 +108,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* About Section */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">
@@ -173,7 +172,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Experience Section */}
       <section className="py-20 px-6 bg-gradient-secondary">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">
@@ -183,7 +181,7 @@ const Portfolio = () => {
             {PORTFOLIO_DATA.sections.experience.description}
           </p>
           <div className="space-y-8">
-            {visibleExperiences.map((exp, index) => (
+            {visibleExperiences.slice().reverse().map((exp, index) => (
               <Card
                 key={index}
                 className="p-6 gradient-border glow-effect transition-all duration-500 hover:scale-105 hover:shadow-glow-primary animate-fade-in-delay-2"
@@ -233,7 +231,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">
@@ -245,7 +242,7 @@ const Portfolio = () => {
           <div className="relative">
             <div className="overflow-x-auto py-8 px-10">
               <div className="flex space-x-6 w-max">
-                {PORTFOLIO_DATA.projects.map((project, index) => (
+                {PORTFOLIO_DATA.projects.slice().reverse().map((project, index) => (
                   <Card
                     key={index}
                     className="w-[25rem] h-[30rem] overflow-y-scroll glow-effect flex-shrink-0 cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-glow-primary animate-fade-in-delay-2"
@@ -290,7 +287,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
       <section className="py-20 px-6 bg-gradient-secondary">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold mb-4 text-center gradient-text animate-fade-in">
