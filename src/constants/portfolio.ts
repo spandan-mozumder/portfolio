@@ -1,3 +1,20 @@
+import {
+  gitwit1,
+  gitwit2,
+  gitwit3,
+  gitwit4,
+  gitwit5,
+} from "@/assets/gitwit/export";
+
+import {
+  mindmapr1,
+  mindmapr2,
+  mindmapr3,
+  mindmapr4,
+  mindmapr5,
+  mindmapr6,
+} from "@/assets/mindmapr/export";
+
 export const PORTFOLIO_DATA = {
   hero: {
     name: "Spandan Mozumder",
@@ -44,12 +61,7 @@ export const PORTFOLIO_DATA = {
         "Cloud Deployment",
         "Clean Code",
       ],
-      personal: [
-        "Leadership",
-        "Adaptability",
-        "Collaboration",
-        "Discipline",
-      ],
+      personal: ["Leadership", "Adaptability", "Collaboration", "Discipline"],
     },
   },
 
@@ -81,17 +93,51 @@ export const PORTFOLIO_DATA = {
         "Stripe",
         "Gemini",
       ],
-      image: [],
+      image: [gitwit1],
       features: [
         "Real-time collaboration on GitHub projects",
-        "Secure payment processing with Stripe",
-        "Comprehensive admin dashboard",
-        "Gemini has the context of all the code in the repository",
+        "AI has context of the entire codebase",
+        "Users can ask any question about the codebase",
+        "AI responds to user's query along with files that it took reference from",
         "Automatic summarization of issues and commits",
-        "AI powered summarization of meetings",
+        "AI powered summarization of meetings audios",
       ],
-      images: [],
-      liveUrl: "#",
+      images: [gitwit1, gitwit2, gitwit3, gitwit4, gitwit5],
+      liveUrl: "https://gitwit-two.vercel.app/",
+    },
+    {
+      title: "MindMapr",
+      description:
+        "An AI powered career consultant that helps you with your complete interview preparation. It gives you industry insights based on your selected industry and field. It helps you generate resume, write AI generated cover letters and emails and also generate quizzes based on the topics you have mentioned. It also lets you create courses based on the skill you want to learn and how much concept you want to learn along with conducting live online voice interviews with AI for the Job description.",
+      technologies: [
+        "ReactJS",
+        "NextJS",
+        "JavaScript",
+        "TailwindCSS",
+        "ShadCN",
+        "Prisma",
+        "PostgreSQL",
+        "Gemini",
+        "Inngest",
+      ],
+      image: [mindmapr1],
+      features: [
+        "Using Gemini API for industry highlights which gets updated every 7 days",
+        "Generate and edit resumes by filling a form with a touch of a button",
+        "Make AI generated cover letters by uploading Job Descriptions",
+        "Conduct skill tests and get visualising reports",
+        "Make AI generate courses for easy learning and comprehension",
+        "Conduct live mock interviews with AI for the job",
+      ],
+      images: [
+        mindmapr1,
+        mindmapr2,
+        mindmapr3,
+        mindmapr4,
+        mindmapr5,
+        mindmapr6,
+      ],
+      liveUrl: "https://mindmapr-topaz.vercel.app/",
     },
   ],
 

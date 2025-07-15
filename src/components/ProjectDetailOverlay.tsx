@@ -46,7 +46,7 @@ const ProjectDetailOverlay = ({
     <div className="fixed inset-0 bg-background/95 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <Card className="w-full max-w-4xl max-h-[90vh] overflow-y-auto glow-effect">
         <div className="relative">
-          {/* Close Button */}
+
           <Button
             variant="ghost"
             size="icon"
@@ -56,7 +56,6 @@ const ProjectDetailOverlay = ({
             <X className="h-4 w-4" />
           </Button>
 
-          {/* Image Carousel */}
 
           {Array.isArray(project.images) && project.images.length > 0 && (
             <div className="relative aspect-video">
@@ -102,7 +101,6 @@ const ProjectDetailOverlay = ({
             </div>
           )}
 
-          {/* Content */}
           <div className="p-8 space-y-6">
             <div>
               <h2 className="text-3xl font-bold mb-4 gradient-text">
@@ -113,7 +111,6 @@ const ProjectDetailOverlay = ({
               </p>
             </div>
 
-            {/* Features */}
             <div>
               <h3 className="text-xl font-semibold mb-4 text-primary">
                 Key Features
@@ -128,7 +125,6 @@ const ProjectDetailOverlay = ({
               </ul>
             </div>
 
-            {/* Technologies */}
             <div>
               <h3 className="text-xl font-semibold mb-4 text-primary">
                 Technologies Used
@@ -142,7 +138,6 @@ const ProjectDetailOverlay = ({
               </div>
             </div>
 
-            {/* View Live Button */}
             <div className="pt-4">
               <Button
                 className="glow-effect"
