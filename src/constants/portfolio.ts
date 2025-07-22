@@ -13,6 +13,12 @@ import {
   mindmapr4,
   mindmapr5,
   mindmapr6,
+  mindmapr7,
+  mindmapr8,
+  mindmapr9,
+  mindmapr10,
+  mindmapr11,
+  mindmapr12,
 } from "@/assets/mindmapr/export";
 
 export const PORTFOLIO_DATA = {
@@ -136,6 +142,12 @@ export const PORTFOLIO_DATA = {
         mindmapr4,
         mindmapr5,
         mindmapr6,
+        mindmapr7,
+        mindmapr8,
+        mindmapr9,
+        mindmapr10,
+        mindmapr11,
+        mindmapr12,
       ],
       liveUrl: "https://mindmapr-topaz.vercel.app/",
     },
