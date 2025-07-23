@@ -200,7 +200,7 @@ export const PORTFOLIO_DATA = {
     twitter: "https://x.com/spandanmozumder",
     linkedin: "https://www.linkedin.com/in/spandan-mozumder-88378233a/",
     instagram: "https://instagram.com/johndoe",
-    resumeUrl: "/resume.pdf",
+    resumeUrl: "https://drive.google.com/file/d/1Q_gkmVZCaJtX8I1DXwLc1j9EF0uYtVZn/view?usp=drive_link",
   },
 
   footer: {
