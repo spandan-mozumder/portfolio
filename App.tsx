@@ -261,14 +261,16 @@ const App: React.FC = () => {
               reach out.
             </p>
             <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-6">
-              <a
-                href={`mailto:${contact.email}`}
-                rel="noopener noreferrer"
-                className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-              >
-                <MailIcon className="w-5 h-5 mr-2" />
-                {contact.email}
-              </a>
+              <div>
+                <a
+                  href={`mailto:${contact.email}`}
+                  rel="noopener noreferrer"
+                  className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors whitespace-nowrap"
+                >
+                  <MailIcon className="w-5 h-5 mr-2" />
+                  {contact.email}
+                </a>
+              </div>
               <div className="flex items-center text-gray-600 dark:text-gray-400">
                 <PhoneIcon className="w-5 h-5 mr-2" />
                 {contact.phone}
