@@ -178,7 +178,7 @@ const App: React.FC = () => {
               <MailIcon className="w-6 h-6" />
             </a>
             <a
-              href="https://drive.google.com/file/d/1wnN-scL1jHYVJHp6metGt6hhiosMdP2c/view?usp=drive_link"
+              href="https://drive.google.com/file/d/18Hb3EB4hjd663t6D8XckxZgzohsRjWlf/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gray-200/80 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1.5 rounded-md text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
