@@ -31,7 +31,7 @@ export interface Project {
 export interface SocialLinks {
   github: string;
   linkedin: string;
-  x?: string;
+  x: string;
   portfolio: string;
 }
 
