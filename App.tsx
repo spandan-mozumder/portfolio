@@ -37,9 +37,18 @@ import {
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 import { TbBrandReactNative } from "react-icons/tb";
-import { FaBrain } from "react-icons/fa";
-import { IoTime, IoExtensionPuzzle } from "react-icons/io5";
-import { IoIosSettings } from "react-icons/io";
+import { 
+  Brain, 
+  Clock, 
+  Puzzle, 
+  Settings,
+  User,
+  Wrench,
+  GraduationCap,
+  Briefcase,
+  Rocket,
+  MessageCircle
+} from "lucide-react";
 
 import profile from "./assets/profile.jpeg";
 import banner from "./assets/banner.jpg";
@@ -64,10 +73,10 @@ const iconMap = {
   Git: <DiGit color="#F05032" size={17} />,
   Kubernetes: <SiKubernetes color="#326CE5" size={17} />,
   Gemini: <SiGooglecloud color="#4A90E2" size={17} />,
-  Leadership: <FaBrain size={17} />,
-  Discipline: <IoTime size={17} />,
-  "Problem-solving": <IoExtensionPuzzle size={17} />,
-  Adaptability: <IoIosSettings size={17} />,
+  Leadership: <Brain size={17} className="text-purple-500" />,
+  Discipline: <Clock size={17} className="text-blue-500" />,
+  "Problem-solving": <Puzzle size={17} className="text-green-500" />,
+  Adaptability: <Settings size={17} className="text-orange-500" />,
 };
 
 const App: React.FC = () => {
@@ -112,43 +121,48 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#f7f7f5] dark:bg-[#1a1a1a] text-gray-800 dark:text-gray-300 font-sans antialiased transition-colors duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-all duration-500">
       <button
         onClick={toggleTheme}
-        className="fixed top-4 right-4 z-50 bg-gray-200/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-800 dark:text-gray-200 p-2 rounded-full shadow-md hover:bg-gray-300 dark:hover:bg-gray-700 transition-all duration-200"
+        className="fixed top-6 right-6 z-50 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md text-gray-700 dark:text-gray-200 p-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50"
         aria-label="Toggle dark mode"
       >
         {theme === "light" ? (
-          <MoonIcon className="w-6 h-6" />
+          <MoonIcon className="w-5 h-5" />
         ) : (
-          <SunIcon className="w-6 h-6" />
+          <SunIcon className="w-5 h-5" />
         )}
       </button>
 
-      <div className="h-48 bg-gray-200 dark:bg-gray-800">
-        <img src={banner} alt="Cover" className="w-full h-full object-cover" />
+      {/* Hero Banner */}
+      <div className="relative h-64 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 dark:from-blue-800 dark:via-purple-800 dark:to-indigo-900 overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <img src={banner} alt="Cover" className="w-full h-full object-cover mix-blend-overlay" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
       </div>
-      <main className="max-w-4xl mx-auto p-4 md:p-8 relative -mt-20">
-        <div className="mb-12">
-          <div className="w-32 h-32 rounded-full bg-white dark:bg-gray-800 border-4 border-white dark:border-[#1a1a1a] shadow-lg overflow-hidden mb-4">
+      
+      <main className="max-w-4xl mx-auto px-8 md:px-12 lg:px-16 relative -mt-24">
+        {/* Profile Header */}
+        <div className="mb-16">
+          <div className="w-36 h-36 rounded-full bg-white dark:bg-gray-800 border-4 border-white dark:border-gray-800 shadow-2xl overflow-hidden mb-6 ring-4 ring-white/50 dark:ring-gray-700/50">
             <img
               src={profile}
               alt={name}
               className="w-full h-full object-cover"
             />
           </div>
-          <h1 className="text-5xl font-bold text-gray-900 dark:text-gray-100">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-3 tracking-tight">
             {name}
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mt-2">
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6 font-medium">
             {title}
           </p>
-          <div className="flex items-center space-x-4 mt-4 text-gray-500 dark:text-gray-400">
+          <div className="flex flex-wrap items-center gap-4 text-gray-500 dark:text-gray-400">
             <a
               href={socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-900 dark:hover:text-white transition-colors"
+              className="p-2 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <GithubIcon className="w-6 h-6" />
             </a>
@@ -157,23 +171,23 @@ const App: React.FC = () => {
                 href={socials.x}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="p-2 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
               >
-                <XIcon className="w-5 h-5" />
+                <XIcon className="w-6 h-6" />
               </a>
             )}
             <a
               href={socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-900 dark:hover:text-white transition-colors"
+              className="p-2 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <LinkedinIcon className="w-6 h-6" />
             </a>
             <a
               href={`mailto:${contact.email}`}
               rel="noopener noreferrer"
-              className="hover:text-gray-900 dark:hover:text-white transition-colors"
+              className="p-2 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <MailIcon className="w-6 h-6" />
             </a>
@@ -181,39 +195,39 @@ const App: React.FC = () => {
               href="https://drive.google.com/file/d/18Hb3EB4hjd663t6D8XckxZgzohsRjWlf/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gray-200/80 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1.5 rounded-md text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105"
             >
               Resume
             </a>
           </div>
         </div>
 
-        <Section icon="👤" title="About Me">
-          <div className="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+        <Section icon={<User className="w-7 h-7 text-blue-600 dark:text-blue-400" />} title="About Me">
+          <div className="space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
             {about.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
+              <p key={index} className="text-base md:text-lg leading-relaxed">{paragraph}</p>
             ))}
           </div>
         </Section>
 
-        <Section icon="🛠️" title="Skills Summary">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Section icon={<Wrench className="w-7 h-7 text-green-600 dark:text-green-400" />} title="Skills Summary">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skills.map((skill: Skill) => (
               <div
                 key={skill.category}
-                className="bg-white/50 dark:bg-gray-800/60 p-4 rounded-lg border border-gray-200/80 dark:border-gray-700/60"
+                className="bg-white/80 dark:bg-gray-800/80 p-6 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm"
               >
-                <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                <h3 className="font-bold text-lg text-gray-800 dark:text-gray-100 mb-4">
                   {skill.category}
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {skill.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-gray-200/80 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-1 rounded-md flex gap-2 justify-center items-center"
+                      className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium px-3 py-2 rounded-lg flex gap-2 items-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
                     >
-                      {" "}
-                      {iconMap[tech] || <VscCode size={14} />} {tech}
+                      {iconMap[tech] || <VscCode size={16} />} 
+                      <span>{tech}</span>
                     </span>
                   ))}
                 </div>
@@ -222,65 +236,65 @@ const App: React.FC = () => {
           </div>
         </Section>
 
-        <Section icon="🎓" title="Education">
-          <div className="bg-white/50 dark:bg-gray-800/60 p-4 rounded-lg border border-gray-200/80 dark:border-gray-700/60">
-            <h3 className="font-semibold text-gray-800 dark:text-gray-200">
+        <Section icon={<GraduationCap className="w-7 h-7 text-purple-600 dark:text-purple-400" />} title="Education">
+          <div className="bg-white/80 dark:bg-gray-800/80 p-6 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
+            <h3 className="font-bold text-xl text-gray-800 dark:text-gray-100 mb-2">
               {education.institution}
             </h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-3">
               {education.degree}
             </p>
-            <div className="flex justify-between text-sm text-gray-500 dark:text-gray-500 mt-1">
+            <div className="flex flex-col sm:flex-row sm:justify-between text-sm text-gray-500 dark:text-gray-400 gap-2">
               <span>{education.location}</span>
               <span>{education.period}</span>
             </div>
           </div>
         </Section>
 
-        <Section icon="💼" title="Experience">
-          <div className="space-y-6">
+        <Section icon={<Briefcase className="w-7 h-7 text-orange-600 dark:text-orange-400" />} title="Experience">
+          <div className="space-y-8">
             {experiences.map((exp: Experience) => (
               <ExperienceCard key={exp.company} experience={exp} />
             ))}
           </div>
         </Section>
 
-        <Section icon="🚀" title="Featured Projects">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Section icon={<Rocket className="w-7 h-7 text-red-600 dark:text-red-400" />} title="Featured Projects">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
             {projects.map((project: Project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
           </div>
         </Section>
 
-        <Section icon="✉️" title="Get In Touch">
-          <div className="bg-white/50 dark:bg-gray-800/60 p-6 rounded-lg border border-gray-200/80 dark:border-gray-700/60">
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
+        <Section icon={<MessageCircle className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />} title="Get In Touch">
+          <div className="bg-white/80 dark:bg-gray-800/80 p-8 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
+            <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
               I'm always open to discussing new projects, creative ideas, or
               opportunities to be part of an ambitious vision. Feel free to
               reach out.
             </p>
-            <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-6">
-              <div>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+              <div className="flex items-center">
                 <a
                   href={`mailto:${contact.email}`}
                   rel="noopener noreferrer"
-                  className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors whitespace-nowrap"
+                  className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 text-base font-medium"
                 >
-                  <MailIcon className="w-5 h-5 mr-2" />
+                  <MailIcon className="w-5 h-5 mr-3" />
                   {contact.email}
                 </a>
               </div>
-              <div className="flex items-center text-gray-600 dark:text-gray-400">
-                <PhoneIcon className="w-5 h-5 mr-2" />
+              <div className="flex items-center text-gray-600 dark:text-gray-300 text-base font-medium">
+                <PhoneIcon className="w-5 h-5 mr-3" />
                 {contact.phone}
               </div>
             </div>
           </div>
         </Section>
 
-        <footer className="text-center text-gray-500 dark:text-gray-400 mt-16 py-6 border-t border-gray-200/80 dark:border-gray-700/60">
-          <p>
+        <footer className="text-center text-gray-500 dark:text-gray-400 mt-20 py-8 border-t border-gray-200/50 dark:border-gray-700/50">
+          <p className="text-base">
             &copy; {new Date().getFullYear()} {name}. Crafted with ❤️ and lots
             of ☕️.
           </p>

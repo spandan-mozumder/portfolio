@@ -2,19 +2,19 @@
 import React from 'react';
 
 interface SectionProps {
-  icon: string;
+  icon: React.ReactNode;
   title: string;
   children: React.ReactNode;
 }
 
 const Section: React.FC<SectionProps> = ({ icon, title, children }) => {
   return (
-    <section className="my-12">
-      <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2 flex items-center">
-        <span className="text-2xl mr-3">{icon}</span>
+    <section className="mb-24">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-4">
+        <span className="flex items-center justify-center">{icon}</span>
         {title}
       </h2>
-      <hr className="border-gray-200/80 dark:border-gray-700/60 mb-6" />
+      <div className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 rounded-full mb-10 w-24"></div>
       <div>{children}</div>
     </section>
   );
