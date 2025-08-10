@@ -34,8 +34,9 @@ import {
   SiPrisma,
   SiKubernetes,
   SiGooglecloud,
+  SiFirebase,
+  SiInngest,
 } from "react-icons/si";
-import { VscCode } from "react-icons/vsc";
 import { TbBrandReactNative } from "react-icons/tb";
 import { 
   Brain, 
@@ -47,36 +48,41 @@ import {
   GraduationCap,
   Briefcase,
   Rocket,
-  MessageCircle
+  MessageCircle,
+  Users,
+  Zap,
+  Target,
+  Lightbulb
 } from "lucide-react";
 
 import profile from "./assets/profile.jpeg";
 import banner from "./assets/banner.jpg";
 
 const iconMap = {
-  JavaScript: <DiJavascript1 color="#F7DF1E" size={17} />,
-  TypeScript: <SiTypescript color="#3178C6" size={17} />,
-  NodeJS: <DiNodejsSmall color="#339933" size={17} />,
-  HTML: <DiHtml5 color="#E34F26" size={17} />,
-  CSS: <DiCss3 color="#1572B6" size={17} />,
-  Python: <DiPython color="#3776AB" size={17} />,
-  Java: <DiJava color="#007396" size={17} />,
-  NextJS: <SiNextdotjs size={17} />,
-  ReactJS: <DiReact color="#61DAFB" size={17} />,
-  "React Native": <TbBrandReactNative color="#61DAFB" size={17} />,
-  ExpressJS: <SiExpress size={17} />,
-  PostgreSQL: <DiPostgresql color="#336791" size={17} />,
-  MongoDB: <DiMongodb color="#47A248" size={17} />,
-  Firestore: <SiGooglecloud color="#4285F4" size={17} />,
-  "Prisma ORM": <SiPrisma color="#2D3748" size={17} />,
-  Docker: <DiDocker color="#2496ED" size={17} />,
-  Git: <DiGit color="#F05032" size={17} />,
-  Kubernetes: <SiKubernetes color="#326CE5" size={17} />,
-  Gemini: <SiGooglecloud color="#4A90E2" size={17} />,
-  Leadership: <Brain size={17} className="text-purple-500" />,
-  Discipline: <Clock size={17} className="text-blue-500" />,
-  "Problem-solving": <Puzzle size={17} className="text-green-500" />,
-  Adaptability: <Settings size={17} className="text-orange-500" />,
+  JavaScript: <DiJavascript1 color="#F7DF1E" size={20} />,
+  TypeScript: <SiTypescript color="#3178C6" size={20} />,
+  NodeJS: <DiNodejsSmall color="#339933" size={20} />,
+  HTML: <DiHtml5 color="#E34F26" size={20} />,
+  CSS: <DiCss3 color="#1572B6" size={20} />,
+  Python: <DiPython color="#3776AB" size={20} />,
+  Java: <DiJava color="#007396" size={20} />,
+  NextJS: <SiNextdotjs className="text-gray-900 dark:text-white" size={20} />,
+  ReactJS: <DiReact color="#61DAFB" size={20} />,
+  "React Native": <TbBrandReactNative color="#61DAFB" size={20} />,
+  ExpressJS: <SiExpress className="text-gray-700 dark:text-gray-300" size={20} />,
+  PostgreSQL: <DiPostgresql color="#336791" size={20} />,
+  MongoDB: <DiMongodb color="#47A248" size={20} />,
+  Firestore: <SiFirebase color="#FFCA28" size={20} />,
+  "Prisma ORM": <SiPrisma color="#2D3748" size={20} />,
+  Docker: <DiDocker color="#2496ED" size={20} />,
+  Git: <DiGit color="#F05032" size={20} />,
+  Kubernetes: <SiKubernetes color="#326CE5" size={20} />,
+  Inngest: <SiInngest color="#6366F1" size={20} />,
+  Gemini: <SiGooglecloud color="#4285F4" size={20} />,
+  Leadership: <Users size={20} className="text-purple-600 dark:text-purple-400" />,
+  Discipline: <Target size={20} className="text-blue-600 dark:text-blue-400" />,
+  "Problem-solving": <Lightbulb size={20} className="text-yellow-600 dark:text-yellow-400" />,
+  Adaptability: <Zap size={20} className="text-orange-600 dark:text-orange-400" />,
 };
 
 const App: React.FC = () => {
