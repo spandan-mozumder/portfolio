@@ -14,29 +14,6 @@ import {
   MoonIcon,
 } from "./components/icons";
 
-import {
-  DiJavascript1,
-  DiNodejsSmall,
-  DiHtml5,
-  DiCss3,
-  DiPython,
-  DiJava,
-  DiReact,
-  DiPostgresql,
-  DiMongodb,
-  DiDocker,
-  DiGit,
-} from "react-icons/di";
-import {
-  SiTypescript,
-  SiExpress,
-  SiNextdotjs,
-  SiPrisma,
-  SiKubernetes,
-  SiGooglecloud,
-  SiFirebase,
-} from "react-icons/si";
-import { TbBrandReactNative } from "react-icons/tb";
 import { 
   Brain, 
   Clock, 
@@ -57,31 +34,28 @@ import {
 import profile from "./assets/profile.jpeg";
 import banner from "./assets/banner.jpg";
 
-const iconMap = {
-  JavaScript: <DiJavascript1 color="#F7DF1E" size={20} />,
-  TypeScript: <SiTypescript color="#3178C6" size={20} />,
-  NodeJS: <DiNodejsSmall color="#339933" size={20} />,
-  HTML: <DiHtml5 color="#E34F26" size={20} />,
-  CSS: <DiCss3 color="#1572B6" size={20} />,
-  Python: <DiPython color="#3776AB" size={20} />,
-  Java: <DiJava color="#007396" size={20} />,
-  NextJS: <SiNextdotjs className="text-gray-900 dark:text-white" size={20} />,
-  ReactJS: <DiReact color="#61DAFB" size={20} />,
-  "React Native": <TbBrandReactNative color="#61DAFB" size={20} />,
-  ExpressJS: <SiExpress className="text-gray-700 dark:text-gray-300" size={20} />,
-  PostgreSQL: <DiPostgresql color="#336791" size={20} />,
-  MongoDB: <DiMongodb color="#47A248" size={20} />,
-  Firestore: <SiFirebase color="#FFCA28" size={20} />,
-  "Prisma ORM": <SiPrisma color="#2D3748" size={20} />,
-  Docker: <DiDocker color="#2496ED" size={20} />,
-  Git: <DiGit color="#F05032" size={20} />,
-  Kubernetes: <SiKubernetes color="#326CE5" size={20} />,
-  Inngest: <Settings size={20} className="text-indigo-600 dark:text-indigo-400" />,
-  Gemini: <SiGooglecloud color="#4285F4" size={20} />,
-  Leadership: <Users size={20} className="text-purple-600 dark:text-purple-400" />,
-  Discipline: <Target size={20} className="text-blue-600 dark:text-blue-400" />,
-  "Problem-solving": <Lightbulb size={20} className="text-yellow-600 dark:text-yellow-400" />,
-  Adaptability: <Zap size={20} className="text-orange-600 dark:text-orange-400" />,
+// Mapping of skill names to Skill Icons identifiers
+const skillIconMap: Record<string, string> = {
+  JavaScript: "js",
+  TypeScript: "ts",
+  NodeJS: "nodejs",
+  HTML: "html",
+  CSS: "css",
+  Python: "py",
+  Java: "java",
+  NextJS: "nextjs",
+  ReactJS: "react",
+  "React Native": "react",
+  ExpressJS: "express",
+  PostgreSQL: "postgres",
+  MongoDB: "mongodb",
+  Firestore: "firebase",
+  "Prisma ORM": "prisma",
+  Docker: "docker",
+  Git: "git",
+  Kubernetes: "kubernetes",
+  Inngest: "workers", // Using workers as closest match
+  Gemini: "gcp", // Using GCP as it's Google's service
 };
 
 const App: React.FC = () => {
@@ -231,7 +205,20 @@ const App: React.FC = () => {
                       key={tech}
                       className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium px-3 py-2 rounded-lg flex gap-2 items-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
                     >
-                      {iconMap[tech] || <VscCode size={16} />} 
+                      {skillIconMap[tech] ? (
+                        <img 
+                          src={`https://skillicons.dev/icons?i=${skillIconMap[tech]}&theme=${theme}`}
+                          alt={tech}
+                          className="w-5 h-5"
+                        />
+                      ) : (
+                        // Fallback icons for soft skills
+                        tech === "Leadership" ? <Users size={20} className="text-purple-600 dark:text-purple-400" /> :
+                        tech === "Discipline" ? <Target size={20} className="text-blue-600 dark:text-blue-400" /> :
+                        tech === "Problem-solving" ? <Lightbulb size={20} className="text-yellow-600 dark:text-yellow-400" /> :
+                        tech === "Adaptability" ? <Zap size={20} className="text-orange-600 dark:text-orange-400" /> :
+                        <Settings size={20} className="text-gray-600 dark:text-gray-400" />
+                      )}
                       <span>{tech}</span>
                     </span>
                   ))}
