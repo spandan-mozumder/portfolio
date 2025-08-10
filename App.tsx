@@ -35,7 +35,6 @@ import {
   SiKubernetes,
   SiGooglecloud,
   SiFirebase,
-  SiInngest,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 import { 
@@ -77,7 +76,7 @@ const iconMap = {
   Docker: <DiDocker color="#2496ED" size={20} />,
   Git: <DiGit color="#F05032" size={20} />,
   Kubernetes: <SiKubernetes color="#326CE5" size={20} />,
-  Inngest: <SiInngest color="#6366F1" size={20} />,
+  Inngest: <Settings size={20} className="text-indigo-600 dark:text-indigo-400" />,
   Gemini: <SiGooglecloud color="#4285F4" size={20} />,
   Leadership: <Users size={20} className="text-purple-600 dark:text-purple-400" />,
   Discipline: <Target size={20} className="text-blue-600 dark:text-blue-400" />,
