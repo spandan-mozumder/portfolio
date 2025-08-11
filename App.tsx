@@ -122,59 +122,59 @@ const App: React.FC = () => {
       
       <main className="max-w-4xl mx-auto px-8 md:px-12 lg:px-16 relative -mt-24">
         {/* Profile Header */}
-        <div className="mb-16">
-          <div className="w-36 h-36 rounded-full bg-white dark:bg-gray-800 border-4 border-white dark:border-gray-800 shadow-2xl overflow-hidden mb-6 ring-4 ring-white/50 dark:ring-gray-700/50">
+        <div className="mb-12 md:mb-16">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full bg-white dark:bg-gray-800 border-4 border-white dark:border-gray-800 shadow-2xl overflow-hidden mb-4 md:mb-6 ring-4 ring-white/50 dark:ring-gray-700/50">
             <img
               src={profile}
               alt={name}
               className="w-full h-full object-cover"
             />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-3 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-2 md:mb-3 tracking-tight">
             {name}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6 font-medium">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-4 md:mb-6 font-medium">
             {title}
           </p>
-          <div className="flex flex-wrap items-center gap-4 text-gray-500 dark:text-gray-400">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-gray-500 dark:text-gray-400">
             <a
               href={socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
+              className="p-2 sm:p-2.5 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
             >
-              <GithubIcon className="w-6 h-6" />
+              <GithubIcon className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             {socials.x && (
               <a
                 href={socials.x}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
+                className="p-2 sm:p-2.5 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
               >
-                <XIcon className="w-6 h-6" />
+                <XIcon className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
             )}
             <a
               href={socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
+              className="p-2 sm:p-2.5 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
             >
-              <LinkedinIcon className="w-6 h-6" />
+              <LinkedinIcon className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a
               href={`mailto:${contact.email}`}
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
+              className="p-2 sm:p-2.5 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
             >
-              <MailIcon className="w-6 h-6" />
+              <MailIcon className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a
               href="https://drive.google.com/file/d/18Hb3EB4hjd663t6D8XckxZgzohsRjWlf/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105"
             >
               Resume
             </a>
@@ -182,42 +182,42 @@ const App: React.FC = () => {
         </div>
 
         <Section icon={<User className="w-7 h-7 text-blue-600 dark:text-blue-400" />} title="About Me">
-          <div className="space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
+          <div className="space-y-4 md:space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed">
             {about.map((paragraph, index) => (
-              <p key={index} className="text-base md:text-lg leading-relaxed">{paragraph}</p>
+              <p key={index} className="text-sm sm:text-base md:text-lg leading-relaxed">{paragraph}</p>
             ))}
           </div>
         </Section>
 
         <Section icon={<Wrench className="w-7 h-7 text-green-600 dark:text-green-400" />} title="Skills Summary">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {skills.map((skill: Skill) => (
               <div
                 key={skill.category}
-                className="bg-white/80 dark:bg-gray-800/80 p-6 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm"
+                className="bg-white/80 dark:bg-gray-800/80 p-4 sm:p-6 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm"
               >
-                <h3 className="font-bold text-lg text-gray-800 dark:text-gray-100 mb-4">
+                <h3 className="font-bold text-base sm:text-lg text-gray-800 dark:text-gray-100 mb-3 sm:mb-4">
                   {skill.category}
                 </h3>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                   {skill.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium px-3 py-2 rounded-lg flex gap-2 items-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+                      className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg flex gap-1.5 sm:gap-2 items-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
                     >
                       {skillIconMap[tech] ? (
                         <img 
                           src={`https://skillicons.dev/icons?i=${skillIconMap[tech]}&theme=${theme}`}
                           alt={tech}
-                          className="w-5 h-5"
+                          className="w-4 h-4 sm:w-5 sm:h-5"
                         />
                       ) : (
                         // Fallback icons for soft skills
-                        tech === "Leadership" ? <Users size={20} className="text-purple-600 dark:text-purple-400" /> :
-                        tech === "Discipline" ? <Target size={20} className="text-blue-600 dark:text-blue-400" /> :
-                        tech === "Problem-solving" ? <Lightbulb size={20} className="text-yellow-600 dark:text-yellow-400" /> :
-                        tech === "Adaptability" ? <Zap size={20} className="text-orange-600 dark:text-orange-400" /> :
-                        <Settings size={20} className="text-gray-600 dark:text-gray-400" />
+                        tech === "Leadership" ? <Users size={16} className="sm:w-5 sm:h-5 text-purple-600 dark:text-purple-400" /> :
+                        tech === "Discipline" ? <Target size={16} className="sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" /> :
+                        tech === "Problem-solving" ? <Lightbulb size={16} className="sm:w-5 sm:h-5 text-yellow-600 dark:text-yellow-400" /> :
+                        tech === "Adaptability" ? <Zap size={16} className="sm:w-5 sm:h-5 text-orange-600 dark:text-orange-400" /> :
+                        <Settings size={16} className="sm:w-5 sm:h-5 text-gray-600 dark:text-gray-400" />
                       )}
                       <span>{tech}</span>
                     </span>
@@ -229,14 +229,14 @@ const App: React.FC = () => {
         </Section>
 
         <Section icon={<GraduationCap className="w-7 h-7 text-purple-600 dark:text-purple-400" />} title="Education">
-          <div className="bg-white/80 dark:bg-gray-800/80 p-6 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
-            <h3 className="font-bold text-xl text-gray-800 dark:text-gray-100 mb-2">
+          <div className="bg-white/80 dark:bg-gray-800/80 p-4 sm:p-6 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
+            <h3 className="font-bold text-lg sm:text-xl text-gray-800 dark:text-gray-100 mb-2">
               {education.institution}
             </h3>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-3">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-3">
               {education.degree}
             </p>
-            <div className="flex flex-col sm:flex-row sm:justify-between text-sm text-gray-500 dark:text-gray-400 gap-2">
+            <div className="flex flex-col sm:flex-row sm:justify-between text-xs sm:text-sm text-gray-500 dark:text-gray-400 gap-1 sm:gap-2">
               <span>{education.location}</span>
               <span>{education.period}</span>
             </div>
@@ -244,7 +244,7 @@ const App: React.FC = () => {
         </Section>
 
         <Section icon={<Briefcase className="w-7 h-7 text-orange-600 dark:text-orange-400" />} title="Experience">
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {experiences.map((exp: Experience) => (
               <ExperienceCard key={exp.company} experience={exp} />
             ))}
@@ -252,7 +252,7 @@ const App: React.FC = () => {
         </Section>
 
         <Section icon={<Rocket className="w-7 h-7 text-red-600 dark:text-red-400" />} title="Featured Projects">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
             {projects.map((project: Project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
@@ -260,33 +260,33 @@ const App: React.FC = () => {
         </Section>
 
         <Section icon={<MessageCircle className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />} title="Get In Touch">
-          <div className="bg-white/80 dark:bg-gray-800/80 p-8 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
-            <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
+          <div className="bg-white/80 dark:bg-gray-800/80 p-6 sm:p-8 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
+            <p className="text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base md:text-lg leading-relaxed">
               I'm always open to discussing new projects, creative ideas, or
               opportunities to be part of an ambitious vision. Feel free to
               reach out.
             </p>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
               <div className="flex items-center">
                 <a
                   href={`mailto:${contact.email}`}
                   rel="noopener noreferrer"
-                  className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 text-base font-medium"
+                  className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 text-sm sm:text-base font-medium"
                 >
-                  <MailIcon className="w-5 h-5 mr-3" />
+                  <MailIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
                   {contact.email}
                 </a>
               </div>
-              <div className="flex items-center text-gray-600 dark:text-gray-300 text-base font-medium">
-                <PhoneIcon className="w-5 h-5 mr-3" />
+              <div className="flex items-center text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
+                <PhoneIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
                 {contact.phone}
               </div>
             </div>
           </div>
         </Section>
 
-        <footer className="text-center text-gray-500 dark:text-gray-400 mt-20 py-8 border-t border-gray-200/50 dark:border-gray-700/50">
-          <p className="text-base">
+        <footer className="text-center text-gray-500 dark:text-gray-400 mt-16 md:mt-20 py-6 md:py-8 border-t border-gray-200/50 dark:border-gray-700/50">
+          <p className="text-sm sm:text-base">
             &copy; {new Date().getFullYear()} {name}. Crafted with ❤️ and lots
             of ☕️.
           </p>
