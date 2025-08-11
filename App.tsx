@@ -271,10 +271,10 @@ const App: React.FC = () => {
                 <a
                   href={`mailto:${contact.email}`}
                   rel="noopener noreferrer"
-                  className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 text-sm sm:text-base font-medium"
+                  className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 text-sm sm:text-base font-medium break-all sm:break-normal"
                 >
                   <MailIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-                  <p>{contact.email}</p>
+                  <span className="break-all">{contact.email}</span>
                 </a>
               </div>
               <div className="flex items-center text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
