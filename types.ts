@@ -24,7 +24,6 @@ export interface Project {
   description: string;
   technologies: string[];
   features: string[];
-  images: string[];
   liveUrl: string;
 }
 

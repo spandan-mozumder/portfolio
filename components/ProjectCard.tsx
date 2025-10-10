@@ -4,6 +4,7 @@ import {
   LinkIcon,
   CheckCircleIcon,
 } from "./icons";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 interface ProjectCardProps {
   project: Project;
@@ -11,9 +12,10 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { ref, isVisible } = useScrollAnimation(0.15);
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800/90 rounded-xl border border-gray-200/50 dark:border-gray-700/50 flex flex-col group transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] dark:hover:shadow-gray-900/40 h-auto md:h-[34rem] overflow-hidden backdrop-blur-sm animate-scale-in">
+    <div ref={ref} className={`bg-white/90 dark:bg-gray-800/90 rounded-xl border border-gray-200/50 dark:border-gray-700/50 flex flex-col group transition-all hover:shadow-2xl hover:scale-[1.02] dark:hover:shadow-gray-900/40 h-auto md:h-[34rem] overflow-hidden backdrop-blur-sm scroll-scale-in ${isVisible ? 'visible' : ''}`}>
       <div className="p-4 sm:p-6 md:p-7 flex flex-col flex-grow overflow-y-auto">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-3 sm:gap-0">
           <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100">
@@ -23,7 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105 w-full sm:w-auto"
+            className="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all shadow-md hover:shadow-lg hover:scale-105 w-full sm:w-auto"
           >
             <LinkIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
             Live Demo
@@ -60,7 +62,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium px-2 sm:px-3 py-1 sm:py-1.5 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+                className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium px-2 sm:px-3 py-1 sm:py-1.5 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-all"
               >
                 {tech}
               </span>

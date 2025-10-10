@@ -1,6 +1,4 @@
 import type { PortfolioData } from "./types";
-import mindmaprImage from "./assets/mindmapr.png";
-import gitwitImage from "./assets/gitwit.png";
 
 export const PORTFOLIO_DATA: PortfolioData = {
   name: "Spandan Mozumder",
@@ -95,7 +93,6 @@ export const PORTFOLIO_DATA: PortfolioData = {
         "Custom course generation with YouTube video references.",
         "Mock interviews with an AI bot (Under Development).",
       ],
-      images: [mindmaprImage],
       liveUrl: "https://mindmapr-topaz.vercel.app/",
     },
     {
@@ -119,7 +116,6 @@ export const PORTFOLIO_DATA: PortfolioData = {
         "Chatbot answers questions and references relevant files.",
         "Summarizes meeting audio recordings into topics with timestamps.",
       ],
-      images: [gitwitImage],
       liveUrl: "https://gitwit-two.vercel.app/",
     },
   ],
