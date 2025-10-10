@@ -60,6 +60,25 @@ export const PORTFOLIO_DATA: PortfolioData = {
   ],
   experiences: [
     {
+       title: "Team Member",
+      company: "Google Developer Group - TIU",
+      location: "Hybrid",
+      period: "September 2025 – Present",
+      description: [
+        "Member of the Google Developer Group of the college specifically in the Blockchain domain with personal specialization on Solana",
+        "Responsible for collaborating on different educational campaigns and spreading knowledge through bootcamps and sessions"
+      ]
+    },
+    {
+       title: "Technical Head",
+      company: "After College",
+      location: "Hybrid",
+      period: "September 2025 – Present",
+      description: [
+        "I am spearheading the technical department of the community and responsible for streamlining a smooth and better online experience for the audience."
+      ]
+    },
+    {
       title: "Front-End Developer Intern",
       company: "SociolinQ Technologies Private Limited",
       location: "Remote",
