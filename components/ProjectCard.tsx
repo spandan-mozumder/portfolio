@@ -13,15 +13,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800/90 rounded-xl border border-gray-200/50 dark:border-gray-700/50 flex flex-col group transition-all duration-300 hover:shadow-xl hover:scale-[1.01] dark:hover:shadow-gray-900/40 h-auto md:h-[34rem] overflow-hidden backdrop-blur-sm">
-      <div className="relative">
-        <img
-          src={project.images[currentImageIndex]}
-          alt={`${project.title} screenshot ${currentImageIndex + 1}`}
-          className="w-full h-40 sm:h-48 object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      </div>
+    <div className="bg-white/90 dark:bg-gray-800/90 rounded-xl border border-gray-200/50 dark:border-gray-700/50 flex flex-col group transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] dark:hover:shadow-gray-900/40 h-auto md:h-[34rem] overflow-hidden backdrop-blur-sm animate-scale-in">
       <div className="p-4 sm:p-6 md:p-7 flex flex-col flex-grow overflow-y-auto">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-3 sm:gap-0">
           <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100">

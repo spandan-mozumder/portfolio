@@ -12,3 +12,148 @@ body {
 *::-webkit-scrollbar {
     display: none; 
 }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse-subtle {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animation-delay-100 {
+    animation-delay: 100ms;
+    opacity: 0;
+}
+
+.animation-delay-200 {
+    animation-delay: 200ms;
+    opacity: 0;
+}
+
+.animation-delay-300 {
+    animation-delay: 300ms;
+    opacity: 0;
+}
+
+.animation-delay-400 {
+    animation-delay: 400ms;
+    opacity: 0;
+}
+
+.animation-delay-500 {
+    animation-delay: 500ms;
+    opacity: 0;
+}
+
+.stagger-children > * {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 50ms; opacity: 0; }
+.stagger-children > *:nth-child(2) { animation-delay: 100ms; opacity: 0; }
+.stagger-children > *:nth-child(3) { animation-delay: 150ms; opacity: 0; }
+.stagger-children > *:nth-child(4) { animation-delay: 200ms; opacity: 0; }
+.stagger-children > *:nth-child(5) { animation-delay: 250ms; opacity: 0; }
+.stagger-children > *:nth-child(6) { animation-delay: 300ms; opacity: 0; }
+.stagger-children > *:nth-child(7) { animation-delay: 350ms; opacity: 0; }
+@keyframes gradient-x {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes pulse-slow {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.9;
+    }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-x 3s ease infinite;
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+}

@@ -9,13 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "lucide-react": "^0.539.0",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "lucide-react": "0.545.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "@types/node": "24.7.1",
+    "typescript": "5.9.3",
+    "vite": "7.1.9"
   }
 }

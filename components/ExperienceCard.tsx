@@ -9,10 +9,10 @@ interface ExperienceCardProps {
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
   return (
-    <div className="bg-white/80 dark:bg-gray-800/80 p-4 sm:p-6 md:p-8 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
+    <div className="bg-white/80 dark:bg-gray-800/80 p-4 sm:p-6 md:p-8 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm animate-slide-in-left group">
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">{experience.title}</h3>
-        <div className="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1 sm:mt-0 bg-gray-100 dark:bg-gray-700 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full whitespace-nowrap">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">{experience.title}</h3>
+        <div className="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1 sm:mt-0 bg-gray-100 dark:bg-gray-700 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full whitespace-nowrap group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors duration-300">
             <CalendarIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"/>
             <span>{experience.period}</span>
         </div>
