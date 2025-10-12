@@ -57,6 +57,17 @@ const skillIconMap: Record<string, string> = {
   Kubernetes: "kubernetes",
   Inngest: "workers",
   Gemini: "gcp",
+  Rust: "rust",
+  Anchor: "anchor",
+  Prometheus: "prometheus",
+  Grafana: "grafana",
+  Kafka: "kafka",
+  Cloudflare: "cloudflare",
+  AWS: "aws",
+  Solana: "solana",
+  "solana/web3.js": "solana",
+  Helius: "helius",
+  Jupiter: "jupiter",
 };
 
 const App: React.FC = () => {
@@ -276,8 +287,11 @@ const App: React.FC = () => {
 
         <Section icon={<GraduationCap className="w-7 h-7 text-purple-600 dark:text-purple-400" />} title="Education">
           <div className="bg-white/80 dark:bg-gray-800/80 p-4 sm:p-6 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:scale-[1.02] hover:border-purple-300 dark:hover:border-purple-700 transition-all backdrop-blur-sm group">
-            <h3 className="font-bold text-lg sm:text-xl text-gray-800 dark:text-gray-100 mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
-              {education.institution}
+            <h3 className="font-bold text-lg sm:text-xl text-gray-800 dark:text-gray-100 mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 flex items-center gap-3">
+              {education.logo && (
+                <img src={education.logo} alt={`${education.institution} logo`} className="w-10 h-10 object-contain rounded-md" />
+              )}
+              <span>{education.institution}</span>
             </h3>
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-3">
               {education.degree}

@@ -22,6 +22,9 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
       </div>
       <div className="flex flex-col sm:flex-row sm:items-center text-sm sm:text-base text-gray-700 dark:text-gray-300 gap-2 sm:gap-4 mb-4 sm:mb-6">
         <div className="flex items-center">
+            {experience.logo && (
+              <img src={experience.logo} alt={`${experience.company} logo`} className="w-8 h-8 sm:w-9 sm:h-9 mr-3 object-contain rounded-md" />
+            )}
             <BriefcaseIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-blue-600 dark:text-blue-400"/>
             <span className="font-semibold">{experience.company}</span>
         </div>

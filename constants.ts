@@ -1,8 +1,14 @@
 import type { PortfolioData } from "./types";
+import gitwitImg from "./assets/gitwit.png";
+import mindmaprImg from "./assets/mindmapr.png";
+import tiuLogo from "./assets/tiu.png";
+import acLogo from "./assets/ac.png";
+import sociolinqLogo from "./assets/sociolinq.png";
+import gdgtiuLogo from "./assets/gdgtiu.png";
 
 export const PORTFOLIO_DATA: PortfolioData = {
   name: "Spandan Mozumder",
-  title: "Full Stack Developer & Tech Enthusiast",
+  title: "Full Stack Web and App Developer, Open Source Contributor, Web3 Developer on Solana",
   about: [
     "I'm a full-stack developer passionate about turning ideas into real, usable products. I specialize in crafting end-to-end web applications—from designing scalable backend systems to building snappy, responsive UIs. I don’t just write code; I build solutions, move fast, and stay curious.",
     "I'm particularly drawn to roles where creativity meets execution, and product thinking is just as important as clean code. My goal is to work with teams solving interesting problems with technology.",
@@ -19,6 +25,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
   },
   education: {
     institution: "Techno India University",
+    logo: tiuLogo,
     degree: "Bachelor of Technology - Computer Science and Engineering",
     location: "Kolkata, India",
     period: "Expected June 2026",
@@ -34,11 +41,12 @@ export const PORTFOLIO_DATA: PortfolioData = {
         "CSS",
         "Python",
         "Java",
+        "Rust",
       ],
     },
     {
       category: "Frameworks & Libraries",
-      technologies: ["NextJS", "ReactJS", "React Native", "ExpressJS"],
+      technologies: ["NextJS", "ReactJS", "React Native", "ExpressJS", "Anchor"],
     },
     {
       category: "Databases",
@@ -46,7 +54,11 @@ export const PORTFOLIO_DATA: PortfolioData = {
     },
     {
       category: "Tools",
-      technologies: ["Docker", "Git", "Kubernetes", "Inngest", "Gemini"],
+      technologies: ["Docker", "Git", "Kubernetes", "Inngest", "Gemini", "Prometheus", "Grafana", "Kafka", "Cloudflare", "AWS"],
+    },
+    {
+      category: "Web3",
+      technologies: ["Solana", "solana/web3.js", "Helius", "Jupiter"],
     },
     {
       category: "Soft Skills",
@@ -60,8 +72,9 @@ export const PORTFOLIO_DATA: PortfolioData = {
   ],
   experiences: [
     {
-       title: "Team Member",
+       title: "Team Member (Blockchain)",
       company: "Google Developer Group - TIU",
+      logo: gdgtiuLogo,
       location: "Hybrid",
       period: "September 2025 – Present",
       description: [
@@ -72,6 +85,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
     {
        title: "Technical Head",
       company: "After College",
+      logo: acLogo,
       location: "Hybrid",
       period: "September 2025 – Present",
       description: [
@@ -81,6 +95,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
     {
       title: "Front-End Developer Intern",
       company: "SociolinQ Technologies Private Limited",
+      logo: sociolinqLogo,
       location: "Remote",
       period: "August 2024 – October 2024",
       description: [
@@ -93,6 +108,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
   projects: [
     {
       title: "MindMapr",
+      image: mindmaprImg,
       description:
         "An AI-powered career consultant that helps you with your complete interview preparation. It gives you industry insights, helps you generate resumes, write AI-generated cover letters, generate quizzes, create courses, and conduct live mock interviews with an AI bot.",
       technologies: [
@@ -116,6 +132,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
     },
     {
       title: "GitWit",
+      image: gitwitImg,
       description:
         "An AI-based agent that helps young developers understand codebases easily. It fetches the entire codebase, summarizes files, summarizes commits, and provides a chatbot to answer questions about the repository.",
       technologies: [

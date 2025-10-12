@@ -6,6 +6,7 @@ export interface Skill {
 
 export interface Education {
   institution: string;
+  logo?: string;
   degree: string;
   location: string;
   period: string;
@@ -14,6 +15,7 @@ export interface Education {
 export interface Experience {
   title: string;
   company: string;
+  logo?: string;
   period: string;
   location: string;
   description: string[];
@@ -21,6 +23,7 @@ export interface Experience {
 
 export interface Project {
   title: string;
+  image?: string;
   description: string;
   technologies: string[];
   features: string[];
