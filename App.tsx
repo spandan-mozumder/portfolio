@@ -4,6 +4,7 @@ import type { Project, Experience, Skill } from "./types";
 import Section from "./components/Section";
 import ProjectCard from "./components/ProjectCard";
 import ExperienceCard from "./components/ExperienceCard";
+import PerformanceMonitor from "./components/PerformanceMonitor";
 import {
   GithubIcon,
   LinkedinIcon,
@@ -99,7 +100,7 @@ const App: React.FC = () => {
 
   const profileImages = [profile1, profile2, profile3];
   const [currentProfileIndex, setCurrentProfileIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -121,36 +122,45 @@ const App: React.FC = () => {
     return () => clearInterval(interval);
   }, [profileImages.length]);
 
+  // Preload critical images and mark ready when done
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
+    const imagesToPreload = [banner, profile1, profile2, profile3];
+    let loadedCount = 0;
+    
+    const checkAllLoaded = () => {
+      loadedCount++;
+      if (loadedCount === imagesToPreload.length) {
+        // Use requestAnimationFrame to ensure smooth rendering
+        requestAnimationFrame(() => {
+          setIsReady(true);
+        });
+      }
+    };
 
-    return () => clearTimeout(timer);
+    imagesToPreload.forEach((src) => {
+      const img = new Image();
+      img.onload = checkAllLoaded;
+      img.onerror = checkAllLoaded; // Handle errors gracefully
+      img.src = src;
+    });
+
+    // Fallback timeout to prevent infinite loading
+    const fallbackTimer = setTimeout(() => {
+      setIsReady(true);
+    }, 3000);
+
+    return () => clearTimeout(fallbackTimer);
   }, []);
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="relative w-16 h-16">
-            <div className="absolute inset-0 border-4 border-gray-200 dark:border-gray-700 rounded-full"></div>
-            <div className="absolute inset-0 border-4 border-transparent border-t-blue-600 dark:border-t-blue-400 rounded-full animate-spin"></div>
-          </div>
-          <p className="text-gray-600 dark:text-gray-400 text-sm font-medium animate-pulse">
-            Loading...
-          </p>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-all duration-700 animate-fade-in">
+    <div 
+      className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-all duration-700"
+      style={{ opacity: isReady ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}
+    >
       <button
         onClick={toggleTheme}
         className="fixed top-6 right-6 z-50 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md text-gray-700 dark:text-gray-200 p-3 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-400 border border-gray-200/50 dark:border-gray-700/50"
@@ -167,6 +177,8 @@ const App: React.FC = () => {
         <img
           src={banner}
           alt="Cover"
+          loading="eager"
+          decoding="async"
           className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 group-hover:brightness-95"
         />
       </div>
@@ -179,6 +191,8 @@ const App: React.FC = () => {
                 key={index}
                 src={img}
                 alt={`${name} ${index + 1}`}
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
                 className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-1000 ${
                   index === currentProfileIndex ? "opacity-100" : "opacity-0"
                 }`}
@@ -286,6 +300,8 @@ const App: React.FC = () => {
                         <img
                           src={`https://skillicons.dev/icons?i=${skillIconMap[tech]}&theme=${theme}`}
                           alt={tech}
+                          loading="lazy"
+                          decoding="async"
                           className="w-4 h-4 sm:w-5 sm:h-5"
                         />
                       ) : tech === "Leadership" ? (
@@ -335,6 +351,8 @@ const App: React.FC = () => {
                 <img
                   src={education.logo}
                   alt={`${education.institution} logo`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-10 h-10 object-contain rounded-md"
                 />
               )}
@@ -412,6 +430,9 @@ const App: React.FC = () => {
           </p>
         </footer>
       </main>
+      
+      {/* Performance monitoring in development */}
+      <PerformanceMonitor />
     </div>
   );
 };

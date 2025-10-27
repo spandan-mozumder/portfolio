@@ -30,6 +30,8 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
             <img
               src={experience.logo}
               alt={`${experience.company} logo`}
+              loading="lazy"
+              decoding="async"
               className="w-8 h-8 sm:w-9 sm:h-9 mr-3 object-contain rounded-md"
             />
           )}

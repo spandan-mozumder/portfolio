@@ -13,5 +13,27 @@ export default defineConfig(({ mode }) => {
         "@": path.resolve(__dirname, "."),
       },
     },
+    build: {
+      // Optimize chunk size
+      chunkSizeWarningLimit: 1000,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom'],
+            'lucide': ['lucide-react'],
+          },
+        },
+      },
+      // Enable minification
+      minify: 'esbuild',
+    },
+    // Optimize dependencies
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'lucide-react'],
+    },
+    // Enable CSS code splitting
+    css: {
+      devSourcemap: false,
+    },
   };
 });

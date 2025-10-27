@@ -8,12 +8,17 @@ export const useScrollAnimation = (threshold: number = 0.1) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          // Use requestAnimationFrame for smooth animation
+          requestAnimationFrame(() => {
+            setIsVisible(true);
+          });
+          // Disconnect after first intersection to prevent re-triggering
+          observer.disconnect();
         }
       },
       {
         threshold,
-        rootMargin: "50px",
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before element is in view
       },
     );
 
