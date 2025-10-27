@@ -14,10 +14,10 @@ import {
   MoonIcon,
 } from "./components/icons";
 
-import { 
-  Brain, 
-  Clock, 
-  Puzzle, 
+import {
+  Brain,
+  Clock,
+  Puzzle,
   Settings,
   User,
   Wrench,
@@ -28,7 +28,7 @@ import {
   Users,
   Zap,
   Target,
-  Lightbulb
+  Lightbulb,
 } from "lucide-react";
 
 import profile1 from "./assets/profile1.jpg";
@@ -97,9 +97,9 @@ const App: React.FC = () => {
     return "light";
   });
 
-    const profileImages = [profile1, profile2, profile3];
-    const [currentProfileIndex, setCurrentProfileIndex] = useState(0);
-    const [isLoading, setIsLoading] = useState(true);
+  const profileImages = [profile1, profile2, profile3];
+  const [currentProfileIndex, setCurrentProfileIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -113,8 +113,10 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentProfileIndex((prevIndex) => (prevIndex + 1) % profileImages.length);
-  }, 10000);
+      setCurrentProfileIndex(
+        (prevIndex) => (prevIndex + 1) % profileImages.length,
+      );
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [profileImages.length]);
@@ -122,7 +124,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-  }, 1500);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -139,7 +141,9 @@ const App: React.FC = () => {
             <div className="absolute inset-0 border-4 border-gray-200 dark:border-gray-700 rounded-full"></div>
             <div className="absolute inset-0 border-4 border-transparent border-t-blue-600 dark:border-t-blue-400 rounded-full animate-spin"></div>
           </div>
-          <p className="text-gray-600 dark:text-gray-400 text-sm font-medium animate-pulse">Loading...</p>
+          <p className="text-gray-600 dark:text-gray-400 text-sm font-medium animate-pulse">
+            Loading...
+          </p>
         </div>
       </div>
     );
@@ -159,13 +163,15 @@ const App: React.FC = () => {
         )}
       </button>
 
-      
       <div className="relative h-64 overflow-hidden group">
-        <img src={banner} alt="Cover" className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 group-hover:brightness-95" />
+        <img
+          src={banner}
+          alt="Cover"
+          className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 group-hover:brightness-95"
+        />
       </div>
-      
-      <main className="max-w-4xl mx-auto px-8 md:px-12 lg:px-16 relative -mt-24">
-        
+
+      <main className="max-w-5xl mx-auto px-8 md:px-12 lg:px-16 relative -mt-24">
         <div className="mb-12 md:mb-16 animate-fade-in-up">
           <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full bg-white dark:bg-gray-800 border-4 border-white dark:border-gray-800 shadow-2xl overflow-hidden mb-4 md:mb-6 ring-4 ring-white/50 dark:ring-gray-700/50 relative group">
             {profileImages.map((img, index) => (
@@ -174,7 +180,7 @@ const App: React.FC = () => {
                 src={img}
                 alt={`${name} ${index + 1}`}
                 className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-1000 ${
-                  index === currentProfileIndex ? 'opacity-100' : 'opacity-0'
+                  index === currentProfileIndex ? "opacity-100" : "opacity-0"
                 }`}
               />
             ))}
@@ -239,15 +245,28 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <Section icon={<User className="w-7 h-7 text-blue-600 dark:text-blue-400" />} title="About Me">
+        <Section
+          icon={<User className="w-7 h-7 text-blue-600 dark:text-blue-400" />}
+          title="About Me"
+        >
           <div className="space-y-4 md:space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed stagger-children">
             {about.map((paragraph, index) => (
-              <p key={index} className="text-sm sm:text-base md:text-lg leading-relaxed">{paragraph}</p>
+              <p
+                key={index}
+                className="text-sm sm:text-base md:text-lg leading-relaxed"
+              >
+                {paragraph}
+              </p>
             ))}
           </div>
         </Section>
 
-        <Section icon={<Wrench className="w-7 h-7 text-green-600 dark:text-green-400" />} title="Skills Summary">
+        <Section
+          icon={
+            <Wrench className="w-7 h-7 text-green-600 dark:text-green-400" />
+          }
+          title="Skills Summary"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 stagger-children">
             {skills.map((skill: Skill) => (
               <div
@@ -264,17 +283,36 @@ const App: React.FC = () => {
                       className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg flex gap-1.5 sm:gap-2 items-center hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 hover:scale-105 transition-all"
                     >
                       {skillIconMap[tech] ? (
-                        <img 
+                        <img
                           src={`https://skillicons.dev/icons?i=${skillIconMap[tech]}&theme=${theme}`}
                           alt={tech}
                           className="w-4 h-4 sm:w-5 sm:h-5"
                         />
+                      ) : tech === "Leadership" ? (
+                        <Users
+                          size={16}
+                          className="sm:w-5 sm:h-5 text-purple-600 dark:text-purple-400"
+                        />
+                      ) : tech === "Discipline" ? (
+                        <Target
+                          size={16}
+                          className="sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400"
+                        />
+                      ) : tech === "Problem-solving" ? (
+                        <Lightbulb
+                          size={16}
+                          className="sm:w-5 sm:h-5 text-yellow-600 dark:text-yellow-400"
+                        />
+                      ) : tech === "Adaptability" ? (
+                        <Zap
+                          size={16}
+                          className="sm:w-5 sm:h-5 text-orange-600 dark:text-orange-400"
+                        />
                       ) : (
-                        tech === "Leadership" ? <Users size={16} className="sm:w-5 sm:h-5 text-purple-600 dark:text-purple-400" /> :
-                        tech === "Discipline" ? <Target size={16} className="sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" /> :
-                        tech === "Problem-solving" ? <Lightbulb size={16} className="sm:w-5 sm:h-5 text-yellow-600 dark:text-yellow-400" /> :
-                        tech === "Adaptability" ? <Zap size={16} className="sm:w-5 sm:h-5 text-orange-600 dark:text-orange-400" /> :
-                        <Settings size={16} className="sm:w-5 sm:h-5 text-gray-600 dark:text-gray-400" />
+                        <Settings
+                          size={16}
+                          className="sm:w-5 sm:h-5 text-gray-600 dark:text-gray-400"
+                        />
                       )}
                       <span>{tech}</span>
                     </span>
@@ -285,11 +323,20 @@ const App: React.FC = () => {
           </div>
         </Section>
 
-        <Section icon={<GraduationCap className="w-7 h-7 text-purple-600 dark:text-purple-400" />} title="Education">
+        <Section
+          icon={
+            <GraduationCap className="w-7 h-7 text-purple-600 dark:text-purple-400" />
+          }
+          title="Education"
+        >
           <div className="bg-white/80 dark:bg-gray-800/80 p-4 sm:p-6 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:scale-[1.02] hover:border-purple-300 dark:hover:border-purple-700 transition-all backdrop-blur-sm group">
             <h3 className="font-bold text-lg sm:text-xl text-gray-800 dark:text-gray-100 mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 flex items-center gap-3">
               {education.logo && (
-                <img src={education.logo} alt={`${education.institution} logo`} className="w-10 h-10 object-contain rounded-md" />
+                <img
+                  src={education.logo}
+                  alt={`${education.institution} logo`}
+                  className="w-10 h-10 object-contain rounded-md"
+                />
               )}
               <span>{education.institution}</span>
             </h3>
@@ -303,7 +350,12 @@ const App: React.FC = () => {
           </div>
         </Section>
 
-        <Section icon={<Briefcase className="w-7 h-7 text-orange-600 dark:text-orange-400" />} title="Experience">
+        <Section
+          icon={
+            <Briefcase className="w-7 h-7 text-orange-600 dark:text-orange-400" />
+          }
+          title="Experience"
+        >
           <div className="space-y-6 md:space-y-8">
             {experiences.map((exp: Experience) => (
               <ExperienceCard key={exp.company} experience={exp} />
@@ -311,7 +363,10 @@ const App: React.FC = () => {
           </div>
         </Section>
 
-        <Section icon={<Rocket className="w-7 h-7 text-red-600 dark:text-red-400" />} title="Featured Projects">
+        <Section
+          icon={<Rocket className="w-7 h-7 text-red-600 dark:text-red-400" />}
+          title="Featured Projects"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
             {projects.map((project: Project) => (
               <ProjectCard key={project.title} project={project} />
@@ -319,7 +374,12 @@ const App: React.FC = () => {
           </div>
         </Section>
 
-        <Section icon={<MessageCircle className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />} title="Get In Touch">
+        <Section
+          icon={
+            <MessageCircle className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />
+          }
+          title="Get In Touch"
+        >
           <div className="bg-white/80 dark:bg-gray-800/80 p-6 sm:p-8 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:scale-[1.02] hover:border-indigo-300 dark:hover:border-indigo-700 transition-all backdrop-blur-sm group">
             <p className="text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base md:text-lg leading-relaxed">
               I'm always open to discussing new projects, creative ideas, or

@@ -1,6 +1,5 @@
-
-import React from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import React from "react";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 interface SectionProps {
   icon: React.ReactNode;
@@ -12,7 +11,10 @@ const Section: React.FC<SectionProps> = ({ icon, title, children }) => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={ref} className={`mb-16 md:mb-20 lg:mb-24 scroll-fade-in ${isVisible ? 'visible' : ''}`}>
+    <section
+      ref={ref}
+      className={`mb-16 md:mb-20 lg:mb-24 scroll-fade-in ${isVisible ? "visible" : ""}`}
+    >
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3 md:mb-4 flex items-center gap-3 md:gap-4">
         <span className="flex items-center justify-center">{icon}</span>
         {title}

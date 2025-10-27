@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import type { Project } from "../types";
-import {
-  LinkIcon,
-  CheckCircleIcon,
-} from "./icons";
+import { LinkIcon, CheckCircleIcon } from "./icons";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 interface ProjectCardProps {
@@ -15,7 +12,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const { ref, isVisible } = useScrollAnimation(0.15);
 
   return (
-    <div ref={ref} className={`bg-white/90 dark:bg-gray-800/90 rounded-xl border border-gray-200/50 dark:border-gray-700/50 flex flex-col group transition-all hover:shadow-2xl hover:scale-[1.02] dark:hover:shadow-gray-900/40 h-auto md:h-[34rem] overflow-hidden backdrop-blur-sm scroll-scale-in ${isVisible ? 'visible' : ''}`}>
+    <div
+      ref={ref}
+      className={`bg-white/90 dark:bg-gray-800/90 rounded-xl border border-gray-200/50 dark:border-gray-700/50 flex flex-col group transition-all hover:shadow-2xl hover:scale-[1.02] dark:hover:shadow-gray-900/40 h-auto md:h-[34rem] overflow-hidden backdrop-blur-sm scroll-scale-in ${isVisible ? "visible" : ""}`}
+    >
       {project.image && (
         <div
           className="w-full overflow-hidden bg-gray-50 dark:bg-gray-900"
@@ -25,7 +25,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             src={project.image}
             alt={`${project.title} screenshot`}
             className="transition-transform duration-700 group-hover:scale-105"
-            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
           />
         </div>
       )}

@@ -9,10 +9,12 @@ Visit the live website: [spandan-mozumder-portfolio.vercel.app](https://spandan-
 ## 📸 Preview
 
 The portfolio includes:
+
 - **Professional Profile** - Personal introduction and contact information
 - **Skills Summary** - Technical skills organized by category with icons
 - **Education** - Academic background and qualifications
 - **Experience** - Professional work experience and internships
+
 # Spandan Mozumder — Portfolio
 
 A fast, clean, Notion-inspired personal portfolio built with React + Vite and TypeScript. It showcases projects, experience, skills and contact information with subtle animations and a dark/light theme.
@@ -20,12 +22,14 @@ A fast, clean, Notion-inspired personal portfolio built with React + Vite and Ty
 ---
 
 ## Quick links
+
 - Live demo: https://spandan-mozumder-portfolio.vercel.app/
 - Proof of Work (Notion): https://stingy-handball-6ea.notion.site/Proof-of-Work-Spandan-Mozumder-28828557f10b8022a906fb8d108e03ca#c5ad1b2ad5a2410b8c0568bdc87a77b3
 
 ---
 
 ## Stack
+
 - React 19 + TypeScript
 - Vite for dev and build
 - Tailwind-like utility classes (plain CSS used with utility patterns)
@@ -36,6 +40,7 @@ A fast, clean, Notion-inspired personal portfolio built with React + Vite and Ty
 ## Getting started (local)
 
 Requirements:
+
 - Node.js 16+
 - npm or yarn
 
@@ -93,18 +98,21 @@ npm run preview
 ## How to update your portfolio content
 
 Most content lives in `constants.ts`. Edit the arrays/objects there to change:
+
 - Name, title, about text
 - Social links and contact
 - Education and experience entries
 - Projects (title, description, features, technologies, liveUrl)
 
 When adding a new project with images:
+
 1. Add images to `assets/`
 2. Update `constants.ts` to reference the image paths
 
 ---
 
 ## Animations & behavior
+
 - The site uses a small set of CSS animations defined in `globals.css`.
 - Scroll-triggered animations use `hooks/useScrollAnimation.ts`.
 - There is a minimal loader shown on page load.
@@ -112,6 +120,7 @@ When adding a new project with images:
 ---
 
 ## Accessibility & SEO
+
 - Semantic HTML in components
 - Buttons and interactive elements include aria labels where appropriate
 - Images include `alt` text in most places — add descriptive text for added images
@@ -119,21 +128,23 @@ When adding a new project with images:
 ---
 
 ## Deployment
+
 This project is configured for static deployment (Vercel recommended):
+
 1. Push your repo to GitHub
 2. Import the repo into Vercel and deploy (Vite builds a static output)
 
 ---
 
 ## Notes & suggestions
+
 - Comments were intentionally removed from the codebase to keep files concise; if you prefer inline docs, add JSDoc comments in specific files.
 - If you'd like the project images to re-appear in the Projects grid, edit `components/ProjectCard.tsx` to re-enable the image block.
 
 ---
 
 ## Contact
+
 Spandan Mozumder — mozumder.spandan.professional@gmail.com
 
 ---
-
-Licensed under MIT.

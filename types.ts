@@ -1,4 +1,3 @@
-
 export interface Skill {
   category: string;
   technologies: string[];

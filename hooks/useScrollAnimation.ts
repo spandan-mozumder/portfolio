@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 export const useScrollAnimation = (threshold: number = 0.1) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -13,8 +13,8 @@ export const useScrollAnimation = (threshold: number = 0.1) => {
       },
       {
         threshold,
-        rootMargin: '50px',
-      }
+        rootMargin: "50px",
+      },
     );
 
     const currentRef = ref.current;

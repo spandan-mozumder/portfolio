@@ -1,14 +1,18 @@
 import type { PortfolioData } from "./types";
-import gitwitImg from "./assets/gitwit.png";
-import mindmaprImg from "./assets/mindmapr.png";
+import gitwitImg from "./assets/gitwitImg.png";
 import tiuLogo from "./assets/tiu.png";
 import acLogo from "./assets/ac.png";
 import sociolinqLogo from "./assets/sociolinq.png";
 import gdgtiuLogo from "./assets/gdgtiu.png";
+import ampliflowImg from "./assets/ampliflowImg.png";
+import flowImg from "./assets/flowImg.png";
+import nexusImg from "./assets/nexusImg.png";
+import octoscrapeImg from "./assets/octoscrapeImg.png";
 
 export const PORTFOLIO_DATA: PortfolioData = {
   name: "Spandan Mozumder",
-  title: "Full Stack Web and App Developer, Open Source Contributor, Web3 Developer on Solana",
+  title:
+    "Full Stack Web and App Developer, Open Source Contributor, Web3 Developer on Solana",
   about: [
     "I'm a full-stack developer passionate about turning ideas into real, usable products. I specialize in crafting end-to-end web applications—from designing scalable backend systems to building snappy, responsive UIs. I don’t just write code; I build solutions, move fast, and stay curious.",
     "I'm particularly drawn to roles where creativity meets execution, and product thinking is just as important as clean code. My goal is to work with teams solving interesting problems with technology.",
@@ -46,7 +50,13 @@ export const PORTFOLIO_DATA: PortfolioData = {
     },
     {
       category: "Frameworks & Libraries",
-      technologies: ["NextJS", "ReactJS", "React Native", "ExpressJS", "Anchor"],
+      technologies: [
+        "NextJS",
+        "ReactJS",
+        "React Native",
+        "ExpressJS",
+        "Anchor",
+      ],
     },
     {
       category: "Databases",
@@ -54,7 +64,18 @@ export const PORTFOLIO_DATA: PortfolioData = {
     },
     {
       category: "Tools",
-      technologies: ["Docker", "Git", "Kubernetes", "Inngest", "Gemini", "Prometheus", "Grafana", "Kafka", "Cloudflare", "AWS"],
+      technologies: [
+        "Docker",
+        "Git",
+        "Kubernetes",
+        "Inngest",
+        "Gemini",
+        "Prometheus",
+        "Grafana",
+        "Kafka",
+        "Cloudflare",
+        "AWS",
+      ],
     },
     {
       category: "Web3",
@@ -72,29 +93,33 @@ export const PORTFOLIO_DATA: PortfolioData = {
   ],
   experiences: [
     {
-       title: "Team Member (Blockchain)",
-      company: "Google Developer Group - TIU",
+      title: "Domain Facilitator and Instructor (Blockchain)",
+      company: "GDG on Campus Techno India University",
       logo: gdgtiuLogo,
       location: "Hybrid",
       period: "September 2025 – Present",
       description: [
         "Member of the Google Developer Group of the college specifically in the Blockchain domain with personal specialization on Solana",
-        "Responsible for collaborating on different educational campaigns and spreading knowledge through bootcamps and sessions"
-      ]
+        "Responsible for collaborating on different educational campaigns and spreading knowledge through bootcamps and sessions",
+        "Developed websites for various events for the college while also managing a team and leading them to build products and experiences.",
+      ],
     },
     {
-       title: "Technical Head",
+      title: "Technical Head",
       company: "After College",
       logo: acLogo,
       location: "Hybrid",
       period: "September 2025 – Present",
       description: [
-        "I am spearheading the technical department of the community and responsible for streamlining a smooth and better online experience for the audience."
-      ]
+        "Spearheading the technical department of the community and responsible for streamlining a smooth and better online experience for the audience.",
+        "Streamlined the use of tools and technologies to make the Core Team's workflow efficient cutting down delays, overheads and communication.",
+        "Automated manual tasks which would have been done manually while on the other hand educating the team about softwares and how that will increase efficiency ",
+        "Increased community engagement and marketing through setting up a website, connecting the community through discord and much more.",
+      ],
     },
     {
       title: "Front-End Developer Intern",
-      company: "SociolinQ Technologies Private Limited",
+      company: "SociolinQ",
       logo: sociolinqLogo,
       location: "Remote",
       period: "August 2024 – October 2024",
@@ -107,30 +132,6 @@ export const PORTFOLIO_DATA: PortfolioData = {
   ],
   projects: [
     {
-      title: "MindMapr",
-      image: mindmaprImg,
-      description:
-        "An AI-powered career consultant that helps you with your complete interview preparation. It gives you industry insights, helps you generate resumes, write AI-generated cover letters, generate quizzes, create courses, and conduct live mock interviews with an AI bot.",
-      technologies: [
-        "NextJS",
-        "JavaScript",
-        "Prisma",
-        "Inngest",
-        "Gemini",
-        "PostgreSQL",
-        "TailwindCSS",
-      ],
-      features: [
-        "Industry Insights updated via a CRON job.",
-        "Cold Email Assistant using AI and your job description.",
-        "AI-assisted resume preparation.",
-        "Knowledge testing with AI-generated quizzes.",
-        "Custom course generation with YouTube video references.",
-        "Mock interviews with an AI bot (Under Development).",
-      ],
-      liveUrl: "https://mindmapr-topaz.vercel.app/",
-    },
-    {
       title: "GitWit",
       image: gitwitImg,
       description:
@@ -140,19 +141,174 @@ export const PORTFOLIO_DATA: PortfolioData = {
         "TypeScript",
         "Prisma",
         "tRPC",
+        "Shadcn/ui",
         "Gemini",
         "Assembly AI",
         "PostgreSQL",
         "TailwindCSS",
+        "Clerk",
+        "Supabase",
+        "Octokit",
+        "Langchain",
       ],
       features: [
-        "Fetches and uses the entire codebase as context.",
-        "Summarizes code in each file and generates vector embeddings.",
-        "Summarizes new commits to explain changes.",
-        "Chatbot answers questions and references relevant files.",
-        "Summarizes meeting audio recordings into topics with timestamps.",
+        "AI-powered code reviews with real-time security vulnerability detection and code quality analysis",
+        "Advanced analytics dashboard with live GitHub integration and DORA metrics tracking",
+        "Automated code risk scoring and identification of high-risk files based on change frequency",
+        "Real-time team collaboration chat with 22+ language syntax highlighting and file attachments",
+        "AI meeting transcription and automatic action item extraction from audio recordings",
+        "Security scanning for critical vulnerabilities (eval(), hardcoded credentials, API keys, console.log)",
+        "AI-generated documentation with RAG integration and Langchain-based retrieval",
+        "Vector embeddings storage with Supabase for semantic code search and context injection",
+        "Developer leaderboard and velocity trend visualization for performance tracking",
+        "Comprehensive keyboard shortcuts and dark/light mode with responsive mobile-first design",
+        "End-to-end type-safe development with TypeScript, tRPC, and Prisma",
       ],
-      liveUrl: "https://gitwit-two.vercel.app/",
+      liveUrl: "https://git-wit-five.vercel.app/",
+    },
+    {
+      title: "Flow.dev",
+      image: flowImg,
+      description:
+        "A design-led AI generation platform that creates production-ready web applications through natural language. Describe your vision once, iterate in natural language, and let AI craft complete shadcn-styled apps with live preview.",
+      technologies: [
+        "NextJS",
+        "React",
+        "TypeScript",
+        "Prisma",
+        "tRPC",
+        "PostgreSQL",
+        "TailwindCSS",
+        "Shadcn/ui",
+        "Clerk",
+        "Inngest",
+        "E2B Sandbox",
+      ],
+      features: [
+        "AI-powered component generation with natural language prompts and real-time code preview",
+        "Production-ready React components built on shadcn/ui with consistent design patterns",
+        "Live code editor with file explorer, syntax highlighting, and instant visual feedback",
+        "Multi-project management with full project organization and version history",
+        "Responsive design generation for mobile, tablet, and desktop with mobile-first approach",
+        "Dark and light mode support with OKLch color system for perceptual consistency",
+        "Pre-built template library for SaaS, portfolios, e-commerce, blogs, and dashboards",
+        "Sandboxed code execution with E2B for safe, isolated component testing",
+        "Complete message history and chat persistence for iterative refinement",
+        "Accessible components following WCAG standards with semantic HTML",
+        "Background job orchestration with Inngest for efficient processing",
+        "Secure user authentication and project management with Clerk integration",
+        "Type-safe API calls with tRPC and database ORM with Prisma",
+        "Iterative building through natural conversation with AI refinement suggestions",
+      ],
+      liveUrl: "https://flow-dev-phi.vercel.app/",
+    },
+    {
+      title: "OctoScrape",
+      image: octoscrapeImg,
+      description:
+        "A powerful, visual workflow automation platform for web scraping and data extraction. Build complex scraping workflows through an intuitive drag-and-drop interface without writing any code.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "ReactFlow",
+        "Prisma",
+        "PostgreSQL",
+        "Clerk",
+        "Puppeteer",
+        "Cheerio",
+        "TanStack Query",
+        "Recharts",
+      ],
+      features: [
+        "Intuitive drag-and-drop workflow builder powered by ReactFlow with real-time validation",
+        "No-code automation platform for web scraping and data extraction workflows",
+        "Advanced browser automation with page navigation, form interaction, and element actions",
+        "Conditional logic nodes for building complex, decision-based workflows",
+        "Multiple data delivery options including JSON, CSV exports, and webhook integrations",
+        "Enterprise-grade security with AES-256 encryption for stored credentials",
+        "Secure user authentication and role-based access control via Clerk integration",
+        "Real-time execution monitoring dashboard with detailed phase-level logs",
+        "Performance analytics with success rates, execution times, and error tracking",
+        "Interactive charts and metrics visualization powered by Recharts",
+        "Flexible scheduling system supporting on-demand and cron-based execution",
+        "Fully responsive design with dark mode support and accessible UI components",
+        "Sandboxed workflow execution environment for safe and isolated operations",
+      ],
+      liveUrl: "https://octo-scrape.vercel.app/",
+    },
+    {
+      title: "Ampliflow",
+      image: ampliflowImg,
+      description:
+        "A modern, free campaign automation platform for sending bulk WhatsApp messages and emails with intelligent rate limiting, multi-day scheduling, and real-time analytics.",
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "Prisma",
+        "JWT",
+        "bcryptjs",
+        "Nodemailer",
+        "whatsapp-web.js",
+        "TipTap",
+        "Framer Motion",
+        "shadcn/ui",
+        "Lucide React",
+        "xlsx",
+      ],
+      features: [
+        "Free bulk WhatsApp messaging via WhatsApp Web with QR code authentication and no API costs",
+        "Real-time delivery tracking with automatic retry for failed messages and emoji support",
+        "Auto-format Indian phone numbers and intelligent rate limiting to prevent account bans",
+        "500 emails/day using Gmail SMTP with multiple SMTP provider support (Gmail, Outlook, SendGrid)",
+        "Rich text editor with formatting, smart batching (50 emails per batch), and 1-second delivery intervals",
+        "Excel integration with .xlsx and .xls file upload, auto-detect phone numbers and emails",
+        "Column mapping with validation and Indian phone number auto-formatting",
+        "Multi-day scheduling with auto-split for large campaigns and pause/resume functionality",
+        "Create, edit, and manage reusable message templates with campaign history and detailed logs",
+        "Real-time progress monitoring and analytics dashboard for campaign performance tracking",
+        "User registration and login with JWT-based authentication and secure password hashing",
+        "Protected API routes and session management for enhanced security",
+        "Responsive, modern UI with dark/light mode support and smooth animations",
+        "Serverless PostgreSQL database (Neon) with Prisma ORM for reliable data management",
+        "Sample Excel template download and intuitive campaign management interface",
+      ],
+      liveUrl: "https://ampliflow.vercel.app/landing",
+    },
+    {
+      title: "Nexus Platform",
+      image: nexusImg,
+      description:
+        "A comprehensive productivity platform that integrates project management, task boards, whiteboarding, documentation, and team communication into one seamless application.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Node.js",
+        "PostgreSQL",
+        "WebSocket",
+        "Prisma",
+        "Next.js",
+      ],
+      features: [
+        "Project management with issue tracking, custom statuses, and sprint planning",
+        "Multiple view modes including Kanban, Calendar, and Table for flexible task organization",
+        "Kanban-style task boards with drag-and-drop functionality and custom lists",
+        "Infinite canvas whiteboard with live multiplayer editing and real-time synchronization",
+        "Real-time cursor tracking for all collaborators on the whiteboard",
+        "Advanced drawing tools including pen, shapes, text, and notes with adjustable colors",
+        "Hierarchical document structure with rich block-based editor and cover images",
+        "Team communication channels with direct messaging and message threading",
+        "Emoji reactions and real-time messaging for seamless team collaboration",
+        "Priority and type management with card assignments and labels",
+        "Analytics dashboard for project insights and performance tracking",
+        "Public sharing for documentation and boards with customizable permissions",
+      ],
+      liveUrl: "https://nexus-lyart-chi.vercel.app/",
     },
   ],
 };
