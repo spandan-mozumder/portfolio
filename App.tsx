@@ -241,7 +241,7 @@ const App: React.FC = () => {
               <MailIcon className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a
-              href="https://drive.google.com/file/d/1uA_7LAvrhf7Hj_FqqDA_dTTjexlwKEVF/view?usp=sharing"
+              href="https://drive.google.com/file/d/1f3mbb8qUapr-cxD4E2yZyVapa_Gnepki/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md hover:shadow-xl hover:scale-110 animate-pulse-slow"
