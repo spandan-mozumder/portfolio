@@ -17,17 +17,15 @@ for (const file of files) {
     const originalSize = statSync(input).size;
     totalOriginalSize += originalSize;
     
-    // Determine optimal dimensions based on image type
     let maxWidth = 2560;
     if (file.includes('profile')) {
-      maxWidth = 800; // Profile images don't need to be huge
+      maxWidth = 800;
     } else if (file.includes('banner')) {
-      maxWidth = 2560; // Banner can be larger
+      maxWidth = 2560;
     } else {
-      maxWidth = 1920; // Project images
+      maxWidth = 1920;
     }
     
-    // Create WebP version
     const webpOutput = join(assetsDir, file.replace(/\.(jpg|jpeg|png)$/i, '.webp'));
     
     try {
