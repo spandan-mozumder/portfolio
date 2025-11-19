@@ -43,7 +43,7 @@ RESPONSE RULES:
 - Use **bold** for emphasis when needed
 - Use bullet points (-) for lists when appropriate
 - Be conversational and helpful
-- Focus on Ram's expertise and projects
+- Focus on Spandan's expertise and projects
 - For work inquiries, direct to email: [spandan.mozumder.professional@gmail.com](mailto:spandan.mozumder.professioanl@gmail.com), X: [@spandanmozumder](https://x.com/spandanmozumder), LinkedIn: [LinkedIn](https://www.linkedin.com/in/spandan-mozumder/)
 - Answer questions about technical skills, experience, and projects
 - If unsure about details, suggest visiting the portfolio sections
