@@ -5,6 +5,7 @@ export interface Project {
   video?: string;
   link: string;
   technologies: { name: string; icon: React.ReactNode }[];
+  features?: string[];
   github?: string;
   live: string;
   details: boolean;
