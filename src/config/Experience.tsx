@@ -34,7 +34,7 @@ export const experiences: Experience[] = [
     isCurrent: true,
     isBlur: false,
     company: 'GDG on Campus Techno India University',
-    position: 'Domain Facilitator and Instructor (Blockchain)',
+    position: 'Domain Lead and Instructor (Blockchain)',
     location: 'Hybrid',
     image: '/assets/gdgtiu.png',
     description: [
