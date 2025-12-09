@@ -74,12 +74,6 @@ export const heroConfig = {
       href: '/contact',
       icon: 'Chat',
     },
-    {
-      variant: 'outline',
-      text: 'Proof of Work',
-      href: 'https://stingy-handball-6ea.notion.site/Spandan-Mozumder-28828557f10b8022a906fb8d108e03ca#c5ad1b2ad5a2410b8c0568bdc87a77b3',
-      icon: 'Chat',
-    },
   ],
 };
 
