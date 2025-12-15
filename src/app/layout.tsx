@@ -6,6 +6,8 @@ import { ThemeProvider } from '@/components/common/ThemeProviders';
 import { generateMetadata as getMetadata } from '@/config/Meta';
 import ReactLenis from 'lenis/react';
 import { ViewTransitions } from 'next-view-transitions';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
 
 import './globals.css';
 
@@ -29,6 +31,8 @@ export default function RootLayout({
             <ReactLenis root>
               <Navbar />
               {children}
+               <Analytics />
+               <SpeedInsights />
               <OnekoCat />
               <Footer />
               <ChatBubble />

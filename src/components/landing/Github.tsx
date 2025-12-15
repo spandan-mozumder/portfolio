@@ -11,7 +11,7 @@ import GithubIcon from '../svgs/Github';
 import { Button } from '../ui/button';
 
 const ActivityCalendar = dynamic(
-  () => import('react-activity-calendar').then((mod) => mod.default),
+  () => import('react-activity-calendar'),
   { ssr: false },
 );
 
