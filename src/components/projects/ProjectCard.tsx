@@ -67,18 +67,23 @@ export function ProjectCard({ project }: ProjectCardProps) {
               )}
               <div className="flex items-center gap-2">
                 <Tooltip>
-                  <TooltipTrigger>
+                  <TooltipTrigger asChild>
                     <Link
                       className="text-secondary flex size-6 items-center justify-center hover:text-primary transition-colors"
-                      href={project.link}
-                      target="_blank"
-                      onClick={(e) => e.stopPropagation()}
+                      href={project.isWorking ? project.link : '#'}
+                      target={project.isWorking ? '_blank' : undefined}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (!project.isWorking) {
+                          e.preventDefault();
+                        }
+                      }}
                     >
                       <Website />
                     </Link>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>View Website</p>
+                    <p>{project.isWorking ? 'View Website' : 'Under Development'}</p>
                   </TooltipContent>
                 </Tooltip>
                 <Tooltip>
@@ -107,18 +112,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <h4 className="text-sm font-medium mb-2 text-secondary">
                 Technologies
               </h4>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 {project.technologies.map((technology, index) => (
-                  <Tooltip key={index}>
-                    <TooltipTrigger>
-                      <div className="size-6 hover:scale-120 transition-all duration-300 hover:cursor-pointer">
-                        {technology.icon}
-                      </div>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{technology.name}</p>
-                    </TooltipContent>
-                  </Tooltip>
+                  <span
+                    key={index}
+                    className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground hover:bg-muted/80 transition-colors"
+                  >
+                    {technology.name}
+                  </span>
                 ))}
               </div>
             </div>

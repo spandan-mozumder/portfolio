@@ -161,3 +161,82 @@ export const projects: Project[] = [
     isWorking: true,
   },
 ];
+
+export const inDevelopmentProjects: Project[] = [
+  {
+    title: 'DevOmegle',
+    description:
+      'A socializing platform like Omegle but filtered exclusively for developers. Connect with other devs, share ideas, collaborate on projects, and network with like-minded programmers.',
+    image: '/assets/devomegle.png',
+    link: '#',
+    technologies: [
+      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
+      { name: 'WebSocket', icon: <WebSocket key="websocket" /> },
+      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
+      { name: 'Prisma', icon: <Prisma key="prisma" /> },
+    ],
+    features: [
+      'Real-time video and text chat with developers',
+      'Developer-focused filtering and matching',
+      'GitHub integration for profile verification',
+      'Interest-based matching (tech stack, experience level)',
+      'Code sharing and collaboration features',
+    ],
+    live: '#',
+    details: false,
+    isWorking: false,
+  },
+  {
+    title: 'AstraTrade',
+    description:
+      'A multichain paper trading platform on DEX. Practice trading across multiple blockchain networks with virtual funds, learn DeFi strategies, and track your performance without risking real assets.',
+    image: '/assets/astratrade.png',
+    link: '#',
+    technologies: [
+      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
+      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
+      { name: 'Prisma', icon: <Prisma key="prisma" /> },
+    ],
+    features: [
+      'Multichain support across major DEX networks',
+      'Virtual portfolio management',
+      'Real-time price tracking and charts',
+      'Trading strategy backtesting',
+      'Performance analytics and leaderboards',
+      'Learn DeFi without financial risk',
+    ],
+    live: '#',
+    details: false,
+    isWorking: false,
+  },
+  {
+    title: 'Monolog',
+    description:
+      'A minimalistic periodic accountability app to keep you accountable to your life, work, and progress. Track your goals, reflect on your journey, and maintain consistent momentum through simple, meaningful check-ins.',
+    image: '/assets/monolog.svg',
+    link: '#',
+    technologies: [
+      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
+      { name: 'React', icon: <ReactIcon key="react" /> },
+      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
+      { name: 'Prisma', icon: <Prisma key="prisma" /> },
+    ],
+    features: [
+      'Periodic check-ins for life, work, and personal goals',
+      'Minimalistic design focused on clarity and simplicity',
+      'Progress tracking and reflection prompts',
+      'Customizable accountability schedules',
+      'Visual timeline of your growth and achievements',
+      'Private journaling with optional goal sharing',
+    ],
+    live: '#',
+    details: false,
+    isWorking: false,
+  },
+];

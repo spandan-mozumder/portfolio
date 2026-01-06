@@ -1,7 +1,8 @@
 import Container from '@/components/common/Container';
 import { ProjectList } from '@/components/projects/ProjectList';
 import { Separator } from '@/components/ui/separator';
-import { projects } from '@/config/Projects';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { projects, inDevelopmentProjects } from '@/config/Projects';
 import { generateMetadata as getMetadata } from '@/config/Meta';
 import { Metadata } from 'next';
 
@@ -35,21 +36,30 @@ export default function ProjectsPage() {
 
         <Separator />
 
-        <div className="space-y-6">
-          <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-semibold">
+        <Tabs defaultValue="all" className="w-full">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2">
+            <TabsTrigger value="all">
               All Projects
-              {projects.length > 0 && (
-                <span className="ml-2 text-sm font-normal text-muted-foreground">
-                  ({projects.length}{' '}
-                  {projects.length === 1 ? 'project' : 'projects'})
-                </span>
-              )}
-            </h2>
-          </div>
+              <span className="ml-1.5 text-xs text-muted-foreground">
+                ({projects.length})
+              </span>
+            </TabsTrigger>
+            <TabsTrigger value="in-development">
+              In Development
+              <span className="ml-1.5 text-xs text-muted-foreground">
+                ({inDevelopmentProjects.length})
+              </span>
+            </TabsTrigger>
+          </TabsList>
 
-          <ProjectList projects={projects} />
-        </div>
+          <TabsContent value="all" className="mt-6">
+            <ProjectList projects={projects} />
+          </TabsContent>
+
+          <TabsContent value="in-development" className="mt-6">
+            <ProjectList projects={inDevelopmentProjects} />
+          </TabsContent>
+        </Tabs>
       </div>
     </Container>
   );
