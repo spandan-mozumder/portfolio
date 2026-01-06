@@ -58,7 +58,7 @@ export const heroConfig = {
 
   description: {
     template:
-      'I build full-stack applications using {skills:0}, {skills:1}, {skills:2}, {skills:3} and {skills:4}. Passionate about <b>Web3</b> development on <b>Solana</b>, with a focus on building <b>scalable</b> and <b>user-friendly</b> products.',
+      'I build full-stack applications using {skills:0}, {skills:1}, {skills:2}, {skills:3} and {skills:4}. Passionate about <b>Web3</b> development on <b>Solana</b> with a focus on building <b>scalable</b> and <b>user-friendly</b> products.',
   },
 
   buttons: [
