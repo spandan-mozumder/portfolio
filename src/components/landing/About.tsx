@@ -5,6 +5,7 @@ import React from 'react';
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
+import { Badge } from '../ui/badge';
 
 export default function About() {
   return (
@@ -26,7 +27,10 @@ export default function About() {
             {mySkills.map((skill) => (
               <Tooltip key={skill.key}>
                 <TooltipTrigger asChild>
-                  <div className="mt-4 size-6 hover:cursor-pointer">{skill}</div>
+                  <Badge variant="secondary" className="mt-2 flex items-center gap-2 px-3 py-1.5 hover:cursor-pointer">
+                    <div className="size-4">{skill}</div>
+                    <span className="text-xs font-medium">{skill.key}</span>
+                  </Badge>
                 </TooltipTrigger>
                 <TooltipContent>{skill.key}</TooltipContent>
               </Tooltip>

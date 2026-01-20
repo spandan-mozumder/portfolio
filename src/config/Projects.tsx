@@ -33,6 +33,32 @@ import { Project } from '@/types/project';
 
 export const projects: Project[] = [
   {
+    title: 'DevOmegle',
+    description:
+      'A socializing platform like Omegle but filtered exclusively for developers. Connect with other devs, share ideas, collaborate on projects, and network with like-minded programmers.',
+    image: '/assets/devomegle.png',
+    link: 'https://devomegle.spandyz.xyz',
+    technologies: [
+      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
+      { name: 'WebSocket', icon: <WebSocket key="websocket" /> },
+      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
+      { name: 'Prisma', icon: <Prisma key="prisma" /> },
+    ],
+    features: [
+      'Real-time video and text chat with developers',
+      'Developer-focused filtering and matching',
+      'GitHub integration for profile verification',
+      'Interest-based matching (tech stack, experience level)',
+      'Code sharing and collaboration features',
+    ],
+    github: 'https://github.com/spandan-mozumder/devomegle',
+    live: 'https://devomegle.spandyz.xyz',
+    details: false,
+    isWorking: true,
+  },
+  {
     title: 'GitWit',
     description:
       'An AI-based agent that helps young developers understand codebases easily. It fetches the entire codebase, summarizes files, summarizes commits, and provides a chatbot to answer questions about the repository.',
@@ -163,31 +189,6 @@ export const projects: Project[] = [
 ];
 
 export const inDevelopmentProjects: Project[] = [
-  {
-    title: 'DevOmegle',
-    description:
-      'A socializing platform like Omegle but filtered exclusively for developers. Connect with other devs, share ideas, collaborate on projects, and network with like-minded programmers.',
-    image: '/assets/devomegle.png',
-    link: '#',
-    technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'WebSocket', icon: <WebSocket key="websocket" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
-      { name: 'Prisma', icon: <Prisma key="prisma" /> },
-    ],
-    features: [
-      'Real-time video and text chat with developers',
-      'Developer-focused filtering and matching',
-      'GitHub integration for profile verification',
-      'Interest-based matching (tech stack, experience level)',
-      'Code sharing and collaboration features',
-    ],
-    live: '#',
-    details: false,
-    isWorking: false,
-  },
   {
     title: 'AstraTrade',
     description:

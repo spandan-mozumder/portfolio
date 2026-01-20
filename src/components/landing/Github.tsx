@@ -49,72 +49,73 @@ export default function Github() {
   const [hasError, setHasError] = useState(false);
   const { theme } = useTheme();
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        setIsLoading(true);
-        const response = await fetch(
-          `${githubConfig.apiUrl}/${githubConfig.username}.json`,
-        );
+  // fetchData is exposed so we can call it from a Refresh button
+  const fetchData = async () => {
+    try {
+      setIsLoading(true);
+      setHasError(false);
+      const response = await fetch(
+        `${githubConfig.apiUrl}/${githubConfig.username}.json`,
+      );
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
-        const data: { contributions?: unknown[]; totalContributions?: number } =
-          await response.json();
+      const data: { contributions?: unknown[]; totalContributions?: number } =
+        await response.json();
 
-        if (data?.contributions && Array.isArray(data.contributions)) {
-          const flattenedContributions = data.contributions.flat();
+      if (data?.contributions && Array.isArray(data.contributions)) {
+        const flattenedContributions = data.contributions.flat();
 
-          const contributionLevelMap = {
-            NONE: 0,
-            FIRST_QUARTILE: 1,
-            SECOND_QUARTILE: 2,
-            THIRD_QUARTILE: 3,
-            FOURTH_QUARTILE: 4,
-          };
+        const contributionLevelMap = {
+          NONE: 0,
+          FIRST_QUARTILE: 1,
+          SECOND_QUARTILE: 2,
+          THIRD_QUARTILE: 3,
+          FOURTH_QUARTILE: 4,
+        };
 
-          const validContributions = flattenedContributions
-            .filter(
-              (item: unknown): item is GitHubContributionResponse =>
-                typeof item === 'object' &&
-                item !== null &&
-                'date' in item &&
-                'contributionCount' in item &&
-                'contributionLevel' in item,
-            )
-            .map((item: GitHubContributionResponse) => ({
-              date: String(item.date),
-              count: Number(item.contributionCount || 0),
-              level: (contributionLevelMap[
-                item.contributionLevel as keyof typeof contributionLevelMap
-              ] || 0) as ContributionItem['level'],
-            }));
+        const validContributions = flattenedContributions
+          .filter(
+            (item: unknown): item is GitHubContributionResponse =>
+              typeof item === 'object' &&
+              item !== null &&
+              'date' in item &&
+              'contributionCount' in item &&
+              'contributionLevel' in item,
+          )
+          .map((item: GitHubContributionResponse) => ({
+            date: String(item.date),
+            count: Number(item.contributionCount || 0),
+            level: (contributionLevelMap[
+              item.contributionLevel as keyof typeof contributionLevelMap
+            ] || 0) as ContributionItem['level'],
+          }));
 
-          if (validContributions.length > 0) {
-            // Use the API's totalContributions if available, otherwise calculate
-            const total =
-              data.totalContributions ||
-              validContributions.reduce((sum, item) => sum + item.count, 0);
-            setTotalContributions(total);
+        if (validContributions.length > 0) {
+          const total =
+            data.totalContributions ||
+            validContributions.reduce((sum, item) => sum + item.count, 0);
+          setTotalContributions(total);
 
-            const filteredContributions = filterLastYear(validContributions);
-            setContributions(filteredContributions);
-          } else {
-            setHasError(true);
-          }
+          const filteredContributions = filterLastYear(validContributions);
+          setContributions(filteredContributions);
         } else {
           setHasError(true);
         }
-      } catch (err) {
-        console.error('Failed to fetch GitHub contributions:', err);
+      } else {
         setHasError(true);
-      } finally {
-        setIsLoading(false);
       }
+    } catch (err) {
+      console.error('Failed to fetch GitHub contributions:', err);
+      setHasError(true);
+    } finally {
+      setIsLoading(false);
     }
+  };
 
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -138,6 +139,11 @@ export default function Github() {
                 contributions
               </p>
             )}
+          </div>
+          <div className="flex items-center gap-2">
+            <Button size="sm" onClick={fetchData} disabled={isLoading}>
+              {isLoading ? 'Refreshing...' : 'Refresh'}
+            </Button>
           </div>
         </div>
 
