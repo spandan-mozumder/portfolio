@@ -3,12 +3,15 @@ import Bcrypt from '@/components/technologies/Bcrypt';
 import Cheerio from '@/components/technologies/Cheerio';
 import Clerk from '@/components/technologies/Clerk';
 import E2B from '@/components/technologies/E2B';
+import Expo from '@/components/technologies/Expo';
+import Firebase from '@/components/technologies/Firebase';
 import FramerMotion from '@/components/technologies/FramerMotion';
 import Gemini from '@/components/technologies/Gemini';
 import Inngest from '@/components/technologies/Inngest';
 import JWT from '@/components/technologies/JWT';
 import Langchain from '@/components/technologies/Langchain';
 import LucideReact from '@/components/technologies/LucideReact';
+import NativeWind from '@/components/technologies/NativeWind';
 import NextJs from '@/components/technologies/NextJs';
 import Nodemailer from '@/components/technologies/Nodemailer';
 import NodeJs from '@/components/technologies/NodeJs';
@@ -18,9 +21,12 @@ import Prisma from '@/components/technologies/Prisma';
 import Puppeteer from '@/components/technologies/Puppeteer';
 import ReactIcon from '@/components/technologies/ReactIcon';
 import ReactFlow from '@/components/technologies/ReactFlow';
+import ReactNative from '@/components/technologies/ReactNative';
 import Recharts from '@/components/technologies/Recharts';
 import Shadcn from '@/components/technologies/Shadcn';
 import Supabase from '@/components/technologies/Supabase';
+import Swift from '@/components/technologies/Swift';
+import SwiftUI from '@/components/technologies/SwiftUI';
 import TailwindCss from '@/components/technologies/TailwindCss';
 import TanStackQuery from '@/components/technologies/TanStackQuery';
 import TipTap from '@/components/technologies/TipTap';
@@ -32,11 +38,38 @@ import XLSX from '@/components/technologies/XLSX';
 import { Project } from '@/types/project';
 
 export const projects: Project[] = [
+    {
+    title: 'Monolog',
+    description:
+      'A minimalistic periodic accountability app to keep you accountable to your life, work, and progress. Track your goals, reflect on your journey, and maintain consistent momentum through simple, meaningful check-ins.',
+    image: '/assets/monolog.svg',
+    link: '#',
+    technologies: [
+      { name: 'React Native', icon: <ReactNative key="reactnative" /> },
+      { name: 'Swift', icon: <Swift key="swift" /> },
+      { name: 'SwiftUI', icon: <SwiftUI key="swiftui" /> },
+      { name: 'Expo', icon: <Expo key="expo" /> },
+      { name: 'Firebase', icon: <Firebase key="firebase" /> },
+      { name: 'NativeWind', icon: <NativeWind key="nativewind" /> },
+    ],
+    features: [
+      'Periodic check-ins for life, work, and personal goals',
+      'Minimalistic design focused on clarity and simplicity',
+      'Progress tracking and reflection prompts',
+      'Customizable accountability schedules',
+      'Visual timeline of your growth and achievements',
+      'Private journaling with optional goal sharing',
+    ],
+    github: 'https://github.com/spandan-mozumder/monolog',
+    live: '#',
+    details: false,
+    isWorking: true,
+  },
   {
     title: 'DevOmegle',
     description:
       'A socializing platform like Omegle but filtered exclusively for developers. Connect with other devs, share ideas, collaborate on projects, and network with like-minded programmers.',
-    image: '/assets/devomegle.png',
+    image: '/assets/devomegleImg.png',
     link: 'https://devomegle.spandyz.xyz',
     technologies: [
       { name: 'Next.js', icon: <NextJs key="nextjs" /> },
@@ -55,6 +88,32 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/spandan-mozumder/devomegle',
     live: 'https://devomegle.spandyz.xyz',
+    details: false,
+    isWorking: true,
+  },
+  {
+    title: 'AstraTrade',
+    description:
+      'A multichain paper trading platform on DEX. Practice trading across multiple blockchain networks with virtual funds, learn DeFi strategies, and track your performance without risking real assets.',
+    image: '/assets/astratradeImg.png',
+    link: 'https://astratrade-client.vercel.app/',
+    technologies: [
+      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
+      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
+      { name: 'Prisma', icon: <Prisma key="prisma" /> },
+    ],
+    features: [
+      'Multichain support across major DEX networks',
+      'Virtual portfolio management',
+      'Real-time price tracking and charts',
+      'Trading strategy backtesting',
+      'Performance analytics and leaderboards',
+      'Learn DeFi without financial risk',
+    ],
+    github: 'https://github.com/spandan-mozumder/astratrade',
+    live: 'https://astratrade-client.vercel.app/',
     details: false,
     isWorking: true,
   },
@@ -188,56 +247,4 @@ export const projects: Project[] = [
   },
 ];
 
-export const inDevelopmentProjects: Project[] = [
-  {
-    title: 'AstraTrade',
-    description:
-      'A multichain paper trading platform on DEX. Practice trading across multiple blockchain networks with virtual funds, learn DeFi strategies, and track your performance without risking real assets.',
-    image: '/assets/astratrade.png',
-    link: '#',
-    technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
-      { name: 'Prisma', icon: <Prisma key="prisma" /> },
-    ],
-    features: [
-      'Multichain support across major DEX networks',
-      'Virtual portfolio management',
-      'Real-time price tracking and charts',
-      'Trading strategy backtesting',
-      'Performance analytics and leaderboards',
-      'Learn DeFi without financial risk',
-    ],
-    live: '#',
-    details: false,
-    isWorking: false,
-  },
-  {
-    title: 'Monolog',
-    description:
-      'A minimalistic periodic accountability app to keep you accountable to your life, work, and progress. Track your goals, reflect on your journey, and maintain consistent momentum through simple, meaningful check-ins.',
-    image: '/assets/monolog.svg',
-    link: '#',
-    technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'React', icon: <ReactIcon key="react" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
-      { name: 'Prisma', icon: <Prisma key="prisma" /> },
-    ],
-    features: [
-      'Periodic check-ins for life, work, and personal goals',
-      'Minimalistic design focused on clarity and simplicity',
-      'Progress tracking and reflection prompts',
-      'Customizable accountability schedules',
-      'Visual timeline of your growth and achievements',
-      'Private journaling with optional goal sharing',
-    ],
-    live: '#',
-    details: false,
-    isWorking: false,
-  },
-];
+export const inDevelopmentProjects: Project[] = [];

@@ -65,7 +65,7 @@ export const heroConfig = {
     {
       variant: 'outline',
       text: 'Resume / CV',
-      href: 'https://drive.google.com/file/d/1mvOnM7W-Uro2TSRJd55u4MvgOVu98lAp/view?usp=sharing',
+      href: 'https://drive.google.com/file/d/1bV7fc3zHl3icafB7acrwC4TeDcv-Q5Tt/view?usp=sharing',
       icon: 'CV',
     },
     {
