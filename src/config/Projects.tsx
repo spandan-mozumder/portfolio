@@ -1,56 +1,19 @@
-import AssemblyAI from '@/components/technologies/AssemblyAI';
-import Bcrypt from '@/components/technologies/Bcrypt';
-import Cheerio from '@/components/technologies/Cheerio';
-import Clerk from '@/components/technologies/Clerk';
-import E2B from '@/components/technologies/E2B';
-import Expo from '@/components/technologies/Expo';
-import Firebase from '@/components/technologies/Firebase';
-import FramerMotion from '@/components/technologies/FramerMotion';
-import Gemini from '@/components/technologies/Gemini';
-import Inngest from '@/components/technologies/Inngest';
-import JWT from '@/components/technologies/JWT';
-import Langchain from '@/components/technologies/Langchain';
-import LucideReact from '@/components/technologies/LucideReact';
-import NativeWind from '@/components/technologies/NativeWind';
-import NextJs from '@/components/technologies/NextJs';
-import Nodemailer from '@/components/technologies/Nodemailer';
-import NodeJs from '@/components/technologies/NodeJs';
-import Octokit from '@/components/technologies/Octokit';
-import PostgreSQL from '@/components/technologies/PostgreSQL';
-import Prisma from '@/components/technologies/Prisma';
-import Puppeteer from '@/components/technologies/Puppeteer';
-import ReactIcon from '@/components/technologies/ReactIcon';
-import ReactFlow from '@/components/technologies/ReactFlow';
-import ReactNative from '@/components/technologies/ReactNative';
-import Recharts from '@/components/technologies/Recharts';
-import Shadcn from '@/components/technologies/Shadcn';
-import Supabase from '@/components/technologies/Supabase';
-import Swift from '@/components/technologies/Swift';
-import SwiftUI from '@/components/technologies/SwiftUI';
-import TailwindCss from '@/components/technologies/TailwindCss';
-import TanStackQuery from '@/components/technologies/TanStackQuery';
-import TipTap from '@/components/technologies/TipTap';
-import TRPC from '@/components/technologies/tRPC';
-import TypeScript from '@/components/technologies/TypeScript';
-import WebSocket from '@/components/technologies/WebSocket';
-import WhatsAppWebJS from '@/components/technologies/WhatsAppWebJS';
-import XLSX from '@/components/technologies/XLSX';
 import { Project } from '@/types/project';
 
 export const projects: Project[] = [
-    {
+  {
     title: 'Monolog',
     description:
       'A minimalistic periodic accountability app to keep you accountable to your life, work, and progress. Track your goals, reflect on your journey, and maintain consistent momentum through simple, meaningful check-ins.',
     image: '/assets/monolog.svg',
     link: '#',
     technologies: [
-      { name: 'React Native', icon: <ReactNative key="reactnative" /> },
-      { name: 'Swift', icon: <Swift key="swift" /> },
-      { name: 'SwiftUI', icon: <SwiftUI key="swiftui" /> },
-      { name: 'Expo', icon: <Expo key="expo" /> },
-      { name: 'Firebase', icon: <Firebase key="firebase" /> },
-      { name: 'NativeWind', icon: <NativeWind key="nativewind" /> },
+      'React Native',
+      'Swift',
+      'SwiftUI',
+      'Expo',
+      'Firebase',
+      'NativeWind',
     ],
     features: [
       'Periodic check-ins for life, work, and personal goals',
@@ -72,12 +35,12 @@ export const projects: Project[] = [
     image: '/assets/devomegleImg.png',
     link: 'https://devomegle.spandyz.xyz',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'WebSocket', icon: <WebSocket key="websocket" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
-      { name: 'Prisma', icon: <Prisma key="prisma" /> },
+      'Next.js',
+      'TypeScript',
+      'WebSocket',
+      'Tailwind CSS',
+      'PostgreSQL',
+      'Prisma',
     ],
     features: [
       'Real-time video and text chat with developers',
@@ -98,11 +61,11 @@ export const projects: Project[] = [
     image: '/assets/astratradeImg.png',
     link: 'https://astratrade-client.vercel.app/',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
-      { name: 'Prisma', icon: <Prisma key="prisma" /> },
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'PostgreSQL',
+      'Prisma',
     ],
     features: [
       'Multichain support across major DEX networks',
@@ -124,19 +87,19 @@ export const projects: Project[] = [
     image: '/assets/gitwitImg.png',
     link: 'https://git-wit-five.vercel.app/',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'Prisma', icon: <Prisma key="prisma" /> },
-      { name: 'tRPC', icon: <TRPC key="trpc" /> },
-      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
-      { name: 'Gemini', icon: <Gemini key="gemini" /> },
-      { name: 'AssemblyAI', icon: <AssemblyAI key="assemblyai" /> },
-      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'Clerk', icon: <Clerk key="clerk" /> },
-      { name: 'Supabase', icon: <Supabase key="supabase" /> },
-      { name: 'Octokit', icon: <Octokit key="octokit" /> },
-      { name: 'Langchain', icon: <Langchain key="langchain" /> },
+      'Next.js',
+      'TypeScript',
+      'Prisma',
+      'tRPC',
+      'shadcn/ui',
+      'Gemini',
+      'AssemblyAI',
+      'PostgreSQL',
+      'Tailwind CSS',
+      'Clerk',
+      'Supabase',
+      'Octokit',
+      'Langchain',
     ],
     features: [
       'AI‑powered code reviews with security checks and code quality analysis',
@@ -159,16 +122,16 @@ export const projects: Project[] = [
     image: '/assets/fluxonImg.png',
     link: 'https://fluxon-mu.vercel.app',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'React', icon: <ReactIcon key="react" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'Prisma', icon: <Prisma key="prisma" /> },
-      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
-      { name: 'Inngest', icon: <Inngest key="inngest" /> },
-      { name: 'tRPC', icon: <TRPC key="trpc" /> },
-      { name: 'ReactFlow', icon: <ReactFlow key="reactflow" /> },
-      { name: 'WebSocket', icon: <WebSocket key="websocket" /> },
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Prisma',
+      'PostgreSQL',
+      'Inngest',
+      'tRPC',
+      'ReactFlow',
+      'WebSocket',
     ],
     features: [
       'Visual node‑based workflow editor with drag‑and‑drop nodes, connections, and reusable node types',
@@ -191,14 +154,14 @@ export const projects: Project[] = [
     image: '/assets/nexusImg.png',
     link: 'https://nexus-lyart-chi.vercel.app/',
     technologies: [
-      { name: 'React', icon: <ReactIcon key="react" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'Node.js', icon: <NodeJs key="nodejs" /> },
-      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
-      { name: 'WebSocket', icon: <WebSocket key="websocket" /> },
-      { name: 'Prisma', icon: <Prisma key="prisma" /> },
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Node.js',
+      'PostgreSQL',
+      'WebSocket',
+      'Prisma',
+      'Next.js',
     ],
     features: [
       'Kanban, Calendar, Table views with custom statuses and sprints',
@@ -219,18 +182,18 @@ export const projects: Project[] = [
     image: '/assets/octoscrapeImg.png',
     link: 'https://octo-scrape.vercel.app/',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
-      { name: 'ReactFlow', icon: <ReactFlow key="reactflow" /> },
-      { name: 'Prisma', icon: <Prisma key="prisma" /> },
-      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
-      { name: 'Clerk', icon: <Clerk key="clerk" /> },
-      { name: 'Puppeteer', icon: <Puppeteer key="puppeteer" /> },
-      { name: 'Cheerio', icon: <Cheerio key="cheerio" /> },
-      { name: 'TanStack Query', icon: <TanStackQuery key="tanstack" /> },
-      { name: 'Recharts', icon: <Recharts key="recharts" /> },
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'shadcn/ui',
+      'ReactFlow',
+      'Prisma',
+      'PostgreSQL',
+      'Clerk',
+      'Puppeteer',
+      'Cheerio',
+      'TanStack Query',
+      'Recharts',
     ],
     features: [
       'ReactFlow builder with validations and conditional logic',

@@ -1,11 +1,10 @@
-import { heroConfig, skillComponents, socialLinks } from '@/config/Hero';
+import { heroConfig, socialLinks } from '@/config/Hero';
 import { parseTemplate } from '@/lib/hero';
 import { cn } from '@/lib/utils';
 import { Link } from 'next-view-transitions';
 import React from 'react';
 
 import Container from '../common/Container';
-import Skill from '../common/Skill';
 import CV from '../svgs/CV';
 import Chat from '../svgs/Chat';
 import { Button } from '../ui/button';
@@ -24,12 +23,14 @@ export default function Hero() {
 
     return parts.map((part) => {
       if (part.type === 'skill' && 'skill' in part && part.skill) {
-        const SkillComponent =
-          skillComponents[part.skill.component as keyof typeof skillComponents];
         return (
-          <Skill key={part.key} name={part.skill.name} href={part.skill.href}>
-            <SkillComponent />
-          </Skill>
+          <Link
+            key={part.key}
+            href={part.skill.href}
+            className="inline-flex items-center gap-1 rounded-full bg-muted/50 px-2 py-0.5 text-sm font-medium text-primary hover:bg-muted transition-colors"
+          >
+            {part.skill.name}
+          </Link>
         );
       } else if (part.type === 'bold' && 'text' in part) {
         return (
@@ -71,9 +72,9 @@ export default function Hero() {
               variant={button.variant as 'outline' | 'default'}
               className={cn(
                 button.variant === 'outline' &&
-                  'inset-shadow-indigo-500',
+                'inset-shadow-indigo-500',
                 button.variant === 'default' &&
-                  'inset-shadow-indigo-500',
+                'inset-shadow-indigo-500',
               )}
             >
               {IconComponent && <IconComponent />}

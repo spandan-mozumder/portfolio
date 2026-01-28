@@ -118,7 +118,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                     key={index}
                     className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground hover:bg-muted/80 transition-colors"
                   >
-                    {technology.name}
+                    {technology}
                   </span>
                 ))}
               </div>
@@ -129,11 +129,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {project.details && (
           <CardFooter className="px-2 pt-0 pb-2 flex justify-between">
             <div
-              className={`flex items-center gap-1 rounded-md px-2 py-1 text-xs ${
-                project.isWorking
+              className={`flex items-center gap-1 rounded-md px-2 py-1 text-xs ${project.isWorking
                   ? 'border-green-300 bg-green-500/10'
                   : 'border-red-300 bg-red-500/10'
-              }`}
+                }`}
             >
               {project.isWorking ? (
                 <>

@@ -4,7 +4,6 @@ import { Link } from 'next-view-transitions';
 import Image from 'next/image';
 import React from 'react';
 
-import Skill from '../common/Skill';
 import Github from '../svgs/Github';
 import LinkedIn from '../svgs/LinkedIn';
 import Website from '../svgs/Website';
@@ -120,13 +119,14 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
         <h4 className="text-md mt-4 mb-2 font-semibold">Technologies</h4>
         <div className="flex flex-wrap gap-2">
           {experience.technologies.map((technology, techIndex: number) => (
-            <Skill
+            <Link
               key={techIndex}
-              name={technology.name}
               href={technology.href}
+              target="_blank"
+              className="inline-flex items-center text-sm bg-black/5 dark:bg-white/15 border border-dashed dark:border-white/30 border-black/20 py-1 px-2 rounded-md skill-inner-shadow self-end text-black dark:text-white"
             >
-              {technology.icon}
-            </Skill>
+              {technology.name}
+            </Link>
           ))}
         </div>
       </div>

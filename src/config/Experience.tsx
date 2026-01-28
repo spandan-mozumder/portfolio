@@ -1,15 +1,6 @@
-import TypeScript from '@/components/technologies/TypeScript';
-import ReactIcon from '@/components/technologies/ReactIcon';
-import NextJs from '@/components/technologies/NextJs';
-import TailwindCss from '@/components/technologies/TailwindCss';
-import Vercel from '@/components/technologies/Vercel';
-import Shadcn from '@/components/technologies/Shadcn';
-import Solana from '@/components/technologies/Solana';
-
 export interface Technology {
   name: string;
   href: string;
-  icon: React.ReactNode;
 }
 
 export interface Experience {
@@ -48,22 +39,18 @@ export const experiences: Experience[] = [
       {
         name: 'Solana',
         href: 'https://solana.com/',
-        icon: <Solana />,
       },
       {
         name: 'TypeScript',
         href: 'https://typescriptlang.org/',
-        icon: <TypeScript />,
       },
       {
         name: 'React',
         href: 'https://react.dev/',
-        icon: <ReactIcon />,
       },
       {
         name: 'Next.js',
         href: 'https://nextjs.org/',
-        icon: <NextJs />,
       },
     ],
     website: 'https://gdg.community.dev/gdg-on-campus-techno-india-university-kolkata-india/',
@@ -87,22 +74,18 @@ export const experiences: Experience[] = [
       {
         name: 'Next.js',
         href: 'https://nextjs.org/',
-        icon: <NextJs />,
       },
       {
         name: 'TypeScript',
         href: 'https://typescriptlang.org/',
-        icon: <TypeScript />,
       },
       {
         name: 'Tailwind CSS',
         href: 'https://tailwindcss.com/',
-        icon: <TailwindCss />,
       },
       {
         name: 'Vercel',
         href: 'https://vercel.com/',
-        icon: <Vercel />,
       },
     ],
     website: 'https://aftercollege.in/',
@@ -125,22 +108,18 @@ export const experiences: Experience[] = [
       {
         name: 'React',
         href: 'https://react.dev/',
-        icon: <ReactIcon />,
       },
       {
         name: 'TypeScript',
         href: 'https://typescriptlang.org/',
-        icon: <TypeScript />,
       },
       {
         name: 'Tailwind CSS',
         href: 'https://tailwindcss.com/',
-        icon: <TailwindCss />,
       },
       {
         name: 'shadcn/ui',
         href: 'https://ui.shadcn.com/',
-        icon: <Shadcn />,
       },
     ],
     website: 'https://sociolinq.com/',

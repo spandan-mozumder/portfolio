@@ -4,7 +4,6 @@ import React from 'react';
 
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
-import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 import { Badge } from '../ui/badge';
 
 export default function About() {
@@ -25,15 +24,13 @@ export default function About() {
           <p className="text-secondary mt-8 font-bold">Skills</p>
           <div className="flex flex-wrap gap-2">
             {mySkills.map((skill) => (
-              <Tooltip key={skill.key}>
-                <TooltipTrigger asChild>
-                  <Badge variant="secondary" className="mt-2 flex items-center gap-2 px-3 py-1.5 hover:cursor-pointer">
-                    <div className="size-4">{skill}</div>
-                    <span className="text-xs font-medium">{skill.key}</span>
-                  </Badge>
-                </TooltipTrigger>
-                <TooltipContent>{skill.key}</TooltipContent>
-              </Tooltip>
+              <Badge
+                key={skill}
+                variant="secondary"
+                className="mt-2 flex items-center gap-2 px-3 py-1.5"
+              >
+                <span className="text-xs font-medium">{skill}</span>
+              </Badge>
             ))}
           </div>
         </div>
