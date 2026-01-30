@@ -24,7 +24,7 @@ export const projects: Project[] = [
       'Private journaling with optional goal sharing',
     ],
     github: 'https://github.com/spandan-mozumder/monolog',
-    live: '#',
+    live: 'https://expo.dev/accounts/spandyzlost/projects/monolog/builds/5ccfdf7f-684b-4fd8-97e3-350fa044e856',
     details: false,
     isWorking: true,
   },
