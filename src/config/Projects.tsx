@@ -2,6 +2,32 @@ import { Project } from '@/types/project';
 
 export const projects: Project[] = [
   {
+    title: 'Solana Handbook',
+    description:
+      'A comprehensive teaching material and guide for learning blockchain fundamentals and Solana development. From core concepts to advanced smart contract programming, this handbook provides structured learning resources for developers entering the Solana ecosystem.',
+    image: '/assets/solanaHandbook.png',
+    link: 'https://solana-handbook.spandyz.xyz',
+    technologies: [
+      'NextJS',
+      'Shadcn',
+      'TailwindCSS',
+      'TypeScript',
+      'MDX',
+    ],
+    features: [
+      'Comprehensive blockchain fundamentals and Solana architecture',
+      'Step-by-step Solana program development tutorials',
+      'Anchor framework deep dive with practical examples',
+      'Token creation and NFT development guides',
+      'DeFi concepts and implementation patterns',
+      'Best practices for secure smart contract development',
+    ],
+    github: 'https://github.com/spandan-mozumder/solana-handbook',
+    live: 'https://solana-handbook.spandyz.xyz',
+    details: false,
+    isWorking: true,
+  },
+  {
     title: 'Monolog',
     description:
       'A minimalistic periodic accountability app to keep you accountable to your life, work, and progress. Track your goals, reflect on your journey, and maintain consistent momentum through simple, meaningful check-ins.',
