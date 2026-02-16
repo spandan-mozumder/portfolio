@@ -28,6 +28,32 @@ export const projects: Project[] = [
     isWorking: true,
   },
   {
+    title: 'Technical Handbook',
+    description:
+      'A comprehensive handbook covering Data Structures & Algorithms, Full Stack Development, and DevOps practices. Master DSA fundamentals, modern full-stack architecture, and deployment strategies with in-depth guides and practical examples.',
+    image: '/assets/technicalHandbook.png',
+    link: 'https://technical-handbook.spandyz.xyz',
+    technologies: [
+      'NextJS',
+      'Shadcn',
+      'TailwindCSS',
+      'TypeScript',
+      'MDX',
+    ],
+    features: [
+      'Complete DSA tutorial with algorithms and data structures',
+      'Full Stack development patterns and best practices',
+      'DevOps fundamentals and infrastructure setup guides',
+      'Practical coding examples and problem-solving strategies',
+      'System design concepts and architecture patterns',
+      'Docker, Kubernetes, and deployment workflows',
+    ],
+    github: 'https://github.com/spandan-mozumder/technical-handbook',
+    live: 'https://technical-handbook.spandyz.xyz',
+    details: false,
+    isWorking: true,
+  },
+  {
     title: 'Monolog',
     description:
       'A minimalistic periodic accountability app to keep you accountable to your life, work, and progress. Track your goals, reflect on your journey, and maintain consistent momentum through simple, meaningful check-ins.',

@@ -72,23 +72,19 @@ export const experiences: Experience[] = [
     endDate: 'Present',
     technologies: [
       {
-        name: 'Next.js',
-        href: 'https://nextjs.org/',
+        name: 'Wix',
+        href: 'https://www.wix.com/',
       },
       {
-        name: 'TypeScript',
-        href: 'https://typescriptlang.org/',
-      },
-      {
-        name: 'Tailwind CSS',
-        href: 'https://tailwindcss.com/',
+        name: 'JavaScript',
+        href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
       },
       {
         name: 'Vercel',
         href: 'https://vercel.com/',
       },
     ],
-    website: 'https://aftercollege.in/',
+    website: 'https://www.instagram.com/_aftercollege_/?hl=en',
   },
   {
     isCurrent: false,
